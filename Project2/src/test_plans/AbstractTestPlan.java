@@ -47,6 +47,10 @@ public abstract class AbstractTestPlan {
 		return null;
 	}
 	
+	public int getNumberOfFailingTests() {
+		return 0;
+	}
+	
 	public void addTestResults(int index, boolean passing, String actualResults) {
 		//add code
 	}

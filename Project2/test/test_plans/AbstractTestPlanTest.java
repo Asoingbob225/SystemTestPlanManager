@@ -76,6 +76,14 @@ class AbstractTestPlanTest {
 	void testGetTestCase() {
 		fail("Not yet implemented");
 	}
+	
+	/**
+	 * Test method for {@link test_plans.AbstractTestPlan#getNumberOfFailingTests()}.
+	 */
+	@Test
+	void testGetNumberOfFailingTests() {
+		fail("Not yet implemented");
+	}
 
 	/**
 	 * Test method for {@link test_plans.AbstractTestPlan#addTestResults(int, boolean, java.lang.String)}.

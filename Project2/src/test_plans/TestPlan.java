@@ -20,6 +20,7 @@ public class TestPlan extends AbstractTestPlan {
 		return null;
 	}
 	
+	@Override
 	public void addTestCase(TestCase testCase) {
 		//add code
 	}
