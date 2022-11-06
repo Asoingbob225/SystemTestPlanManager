@@ -1,7 +1,7 @@
 /**
  * 
  */
-package tests;
+package edu.ncsu.csc216.stp.model.tests;
 
 /**
  * @author yujim

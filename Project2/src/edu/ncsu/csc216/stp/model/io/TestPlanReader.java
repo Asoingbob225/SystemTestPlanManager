@@ -1,11 +1,11 @@
-package io;
+package edu.ncsu.csc216.stp.model.io;
 
 import java.io.File;
 
-import test_plans.AbstractTestPlan;
-import test_plans.TestPlan;
-import tests.TestCase;
-import util.ISortedList;
+import edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan;
+import edu.ncsu.csc216.stp.model.test_plans.TestPlan;
+import edu.ncsu.csc216.stp.model.tests.TestCase;
+import edu.ncsu.csc216.stp.model.util.ISortedList;
 
 public class TestPlanReader {
 	

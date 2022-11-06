@@ -1,4 +1,4 @@
-package util;
+package edu.ncsu.csc216.stp.model.util;
 
 /**
  * Interface for a list that keeps objects in sorted order as defined by the
@@ -8,7 +8,7 @@ package util;
  * 
  * @param <E> type for ISortedList; must implement Comparable
  */
-public interface ISortedList<E extends Comparable<E>> {
+public interface ISortedList<E> extends Comparable<E> {
 	
 	/**
 	 * Adds the element to the list in sorted order.

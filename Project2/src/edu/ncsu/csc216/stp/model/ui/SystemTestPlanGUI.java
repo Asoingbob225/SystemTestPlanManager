@@ -1,4 +1,4 @@
-package ui;
+package edu.ncsu.csc216.stp.model.ui;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -33,11 +33,11 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 
-import manager.TestPlanManager;
-import test_plans.AbstractTestPlan;
-import test_plans.FailingTestList;
-import tests.TestCase;
-import tests.TestResult;
+import edu.ncsu.csc216.stp.model.manager.TestPlanManager;
+import edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan;
+import edu.ncsu.csc216.stp.model.test_plans.FailingTestList;
+import edu.ncsu.csc216.stp.model.tests.TestCase;
+import edu.ncsu.csc216.stp.model.tests.TestResult;
 
 
 /**

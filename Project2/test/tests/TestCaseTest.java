@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class TestCaseTest {
 
 	/**
-	 * Test method for {@link tests.TestCase#TestCase(java.lang.String, java.lang.String, java.lang.String, java.lang.String)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#TestCase(java.lang.String, java.lang.String, java.lang.String, java.lang.String)}.
 	 */
 	@Test
 	void testTestCase() {
@@ -22,7 +22,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#getTestCaseId()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#getTestCaseId()}.
 	 */
 	@Test
 	void testGetTestCaseId() {
@@ -30,7 +30,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#getTestType()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#getTestType()}.
 	 */
 	@Test
 	void testGetTestType() {
@@ -38,7 +38,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#getTestDescription()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#getTestDescription()}.
 	 */
 	@Test
 	void testGetTestDescription() {
@@ -46,7 +46,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#getExpectedResults()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#getExpectedResults()}.
 	 */
 	@Test
 	void testGetExpectedResults() {
@@ -54,7 +54,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#addTestResult(boolean, java.lang.String)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#addTestResult(boolean, java.lang.String)}.
 	 */
 	@Test
 	void testAddTestResult() {
@@ -62,7 +62,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#isTestCasePassing()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#isTestCasePassing()}.
 	 */
 	@Test
 	void testIsTestCasePassing() {
@@ -70,7 +70,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#getStatus()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#getStatus()}.
 	 */
 	@Test
 	void testGetStatus() {
@@ -78,7 +78,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#getActualResultsLog()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#getActualResultsLog()}.
 	 */
 	@Test
 	void testGetActualResultsLog() {
@@ -86,7 +86,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#setTestPlan(TestPlan)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#setTestPlan(TestPlan)}.
 	 */
 	@Test
 	void testSetTestPlan() {
@@ -94,7 +94,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#getTestPlan()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#getTestPlan()}.
 	 */
 	@Test
 	void testGetTestPlan() {
@@ -102,7 +102,7 @@ class TestCaseTest {
 	}
 
 	/**
-	 * Test method for {@link tests.TestCase#toString()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.tests.TestCase#toString()}.
 	 */
 	@Test
 	void testToString() {

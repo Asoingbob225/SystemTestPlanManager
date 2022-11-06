@@ -1,9 +1,9 @@
 /**
  * 
  */
-package test_plans;
+package edu.ncsu.csc216.stp.model.test_plans;
 
-import tests.TestCase;
+import edu.ncsu.csc216.stp.model.tests.TestCase;
 
 /**
  * @author yujim

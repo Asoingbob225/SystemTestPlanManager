@@ -1,9 +1,10 @@
 /**
  * 
  */
-package tests;
+package edu.ncsu.csc216.stp.model.tests;
 
-import util.Log;
+import edu.ncsu.csc216.stp.model.test_plans.TestPlan;
+import edu.ncsu.csc216.stp.model.util.Log;
 
 /**
  * @author yujim

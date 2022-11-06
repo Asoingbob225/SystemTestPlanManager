@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class AbstractTestPlanTest {
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#hashCode()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#hashCode()}.
 	 */
 	@Test
 	void testHashCode() {
@@ -22,7 +22,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#AbstractTestPlan(java.lang.String)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#AbstractTestPlan(java.lang.String)}.
 	 */
 	@Test
 	void testAbstractTestPlan() {
@@ -30,7 +30,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#setTestPlanName(java.lang.String)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#setTestPlanName(java.lang.String)}.
 	 */
 	@Test
 	void testSetTestPlanName() {
@@ -38,7 +38,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#getTestPlanName()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#getTestPlanName()}.
 	 */
 	@Test
 	void testGetTestPlanName() {
@@ -46,7 +46,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#getTestCases()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#getTestCases()}.
 	 */
 	@Test
 	void testGetTestCases() {
@@ -54,7 +54,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#addTestCase(tests.TestCase)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#addTestCase(tests.TestCase)}.
 	 */
 	@Test
 	void testAddTestCase() {
@@ -62,7 +62,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#removeTestCase(int)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#removeTestCase(int)}.
 	 */
 	@Test
 	void testRemoveTestCase() {
@@ -70,7 +70,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#getTestCase(int)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#getTestCase(int)}.
 	 */
 	@Test
 	void testGetTestCase() {
@@ -78,7 +78,7 @@ class AbstractTestPlanTest {
 	}
 	
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#getNumberOfFailingTests()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#getNumberOfFailingTests()}.
 	 */
 	@Test
 	void testGetNumberOfFailingTests() {
@@ -86,7 +86,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#addTestResults(int, boolean, java.lang.String)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#addTestResults(int, boolean, java.lang.String)}.
 	 */
 	@Test
 	void testAddTestResults() {
@@ -94,7 +94,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#getTestCasesAsArray()}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#getTestCasesAsArray()}.
 	 */
 	@Test
 	void testGetTestCasesAsArray() {
@@ -102,7 +102,7 @@ class AbstractTestPlanTest {
 	}
 
 	/**
-	 * Test method for {@link test_plans.AbstractTestPlan#equals(java.lang.Object)}.
+	 * Test method for {@link edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan#equals(java.lang.Object)}.
 	 */
 	@Test
 	void testEqualsObject() {

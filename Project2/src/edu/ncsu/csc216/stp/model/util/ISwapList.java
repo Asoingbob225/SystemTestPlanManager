@@ -1,4 +1,4 @@
-package util;
+package edu.ncsu.csc216.stp.model.util;
 
 /**
  * Interface for a list that changes the position of elements through

@@ -1,15 +1,15 @@
 /**
  * 
  */
-package manager;
+package edu.ncsu.csc216.stp.model.manager;
 
 import java.io.File;
 
-import test_plans.AbstractTestPlan;
-import test_plans.FailingTestList;
-import test_plans.TestPlan;
-import tests.TestCase;
-import util.ISortedList;
+import edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan;
+import edu.ncsu.csc216.stp.model.test_plans.FailingTestList;
+import edu.ncsu.csc216.stp.model.test_plans.TestPlan;
+import edu.ncsu.csc216.stp.model.tests.TestCase;
+import edu.ncsu.csc216.stp.model.util.ISortedList;
 
 /**
  * @author stbeuav

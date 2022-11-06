@@ -1,9 +1,8 @@
 /**
  * 
  */
-package util;
+package edu.ncsu.csc216.stp.model.util;
 
-import edu.ncsu.csc216.pack_scheduler.util.LinkedAbstractList.ListNode;
 
 /**
  * @author stbeuav
@@ -61,6 +60,13 @@ public class SortedList<E> implements ISortedList<E>{
 			this.data = data;
 			this.next = next;
 		}
+	}
+
+
+	@Override
+	public int compareTo(E o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

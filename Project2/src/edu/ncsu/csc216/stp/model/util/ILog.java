@@ -1,4 +1,4 @@
-package util;
+package edu.ncsu.csc216.stp.model.util;
 
 /**
  * Represents as list where elements can only be added

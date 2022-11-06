@@ -1,12 +1,12 @@
 /**
  * 
  */
-package test_plans;
+package edu.ncsu.csc216.stp.model.test_plans;
 
 import java.util.Objects;
 
-import tests.TestCase;
-import util.ISwapList;
+import edu.ncsu.csc216.stp.model.tests.TestCase;
+import edu.ncsu.csc216.stp.model.util.ISwapList;
 
 /**
  * @author yujim
