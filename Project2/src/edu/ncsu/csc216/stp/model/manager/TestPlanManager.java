@@ -73,7 +73,7 @@ public class TestPlanManager {
 		//add code
 	}
 	
-	public void addTestResults(int index, boolean passing, String actualResult) {
+	public void addTestResult(int index, boolean passing, String actualResult) {
 		//add code
 	}
 	
