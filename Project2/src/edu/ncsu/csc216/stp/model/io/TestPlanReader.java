@@ -9,7 +9,7 @@ import edu.ncsu.csc216.stp.model.util.ISortedList;
 
 public class TestPlanReader {
 	
-	public static ISortedList<TestPlan> readTestPLansFile(File filename) {
+	public static ISortedList<TestPlan> readTestPlansFile(File filename) {
 		return null;
 	}
 	
