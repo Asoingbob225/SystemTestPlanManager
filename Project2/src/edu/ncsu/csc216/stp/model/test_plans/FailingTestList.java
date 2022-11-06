@@ -13,8 +13,8 @@ public class FailingTestList extends AbstractTestPlan {
 
 	public static final String FAILING_TEST_LIST_NAME = "Failing_Tests";
 	
-	public FailingTestList(String testPlanName) {
-		super(testPlanName);
+	public FailingTestList() {
+		super(FAILING_TEST_LIST_NAME);
 	}
 	
 	@Override

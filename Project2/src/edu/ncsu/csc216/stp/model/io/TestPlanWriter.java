@@ -14,7 +14,7 @@ import edu.ncsu.csc216.stp.model.util.ISortedList;
  */
 public class TestPlanWriter {
 	
-	public static void writeTestPlansFile(File filename, ISortedList<TestPlan> testPlans) {
+	public static void writeTestPlanFile(File filename, ISortedList<TestPlan> testPlans) {
 		//add code
 	}
 

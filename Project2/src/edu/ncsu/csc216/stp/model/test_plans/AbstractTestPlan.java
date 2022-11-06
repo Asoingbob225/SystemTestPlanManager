@@ -51,7 +51,7 @@ public abstract class AbstractTestPlan {
 		return 0;
 	}
 	
-	public void addTestResults(int index, boolean passing, String actualResults) {
+	public void addTestResult(int index, boolean passing, String actualResults) {
 		//add code
 	}
 	
