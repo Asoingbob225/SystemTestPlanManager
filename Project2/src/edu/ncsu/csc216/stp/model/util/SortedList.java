@@ -35,7 +35,29 @@ public class SortedList<E> implements ISortedList<E>{
 	 */
 	@Override
 	public void add(E element) {
-		//code here
+		if (element == null) {
+			throw new NullPointerException();
+		}
+		ListNode temp = front;
+		if (size() != 0) {
+			for (int i = 0; i < size(); i++) {
+				if (compareTo(temp.data) == 1) {
+					throw new IllegalArgumentException();
+				}
+				temp = temp.next;
+			}
+		}
+		if (size == 0) {
+			front = new ListNode(element, front);
+			size++;
+			return;
+		}
+		temp = front;
+		for (int i = 0; i < size() - 1; i++) {
+			temp = temp.next;
+		}
+		temp.next = new ListNode(element);
+		size++;
 		
 	}
 

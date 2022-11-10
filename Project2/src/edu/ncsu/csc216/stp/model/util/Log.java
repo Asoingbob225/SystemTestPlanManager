@@ -35,7 +35,11 @@ public class Log<E> implements ILog<E> {
 	 */
 	@Override
 	public void add(E element) {
-		//add code
+		if (element == null) {
+			throw new NullPointerException();
+		}
+		log[INIT_SIZE - size] = element;
+		size++;
 	}
 	
 	/**
@@ -47,7 +51,11 @@ public class Log<E> implements ILog<E> {
 	 */
 	@Override
 	public E get(int index) {
-		return null;
+		if (index < INIT_SIZE - size || index > INIT_SIZE) {
+			throw new IndexOutOfBoundsException();
+		}
+		E element = log[index];
+		return element;
 	}
 	
 	/**
