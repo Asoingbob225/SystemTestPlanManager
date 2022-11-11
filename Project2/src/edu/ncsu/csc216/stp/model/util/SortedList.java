@@ -18,6 +18,7 @@ public class SortedList<E> implements ISortedList<E>{
 	/** The front of the sorted list */
 	private ListNode front;
 
+
 	/**
 	 * This is the constructor for the SortedList.
 	 * It initializes the size at 0 and the front of the list to null
@@ -71,7 +72,24 @@ public class SortedList<E> implements ISortedList<E>{
 	 */
 	@Override
 	public E remove(int index) {
-		return null;
+		if (index < 0 || index > size - 1) {
+			throw new IndexOutOfBoundsException();
+		}
+		E element = null;
+		if (index == 0) {
+			element = front.data;
+			front = front.next;
+		}
+		else {
+			ListNode current = front;
+			for (int i = 0; i < index - 1; i++) {
+				current = current.next;
+			}
+			element = current.next.data;
+			current.next = current.next.next;
+		}
+		size--;
+		return element;
 	}
 
 	/**
@@ -91,6 +109,8 @@ public class SortedList<E> implements ISortedList<E>{
 	 */
 	@Override
 	public boolean contains(E element) {
+		
+		
 		return false;
 	}
 
@@ -103,7 +123,14 @@ public class SortedList<E> implements ISortedList<E>{
 	 */
 	@Override
 	public E get(int index) {
-		return null;
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException();
+		}
+		ListNode current = front;
+		for (int i = 0; i < index; i++) {
+			current = current.next;
+		}
+		return current.data;
 	}
 
 	/**
@@ -150,13 +177,10 @@ public class SortedList<E> implements ISortedList<E>{
 	}
 
 
-	/**
-	 * Compares an element to a given object
-	 * @param o the object being compared
-	 */
 	@Override
 	public int compareTo(E o) {
-		// TODO Auto-generated method stub
+		
+		
 		return 0;
 	}
 	
