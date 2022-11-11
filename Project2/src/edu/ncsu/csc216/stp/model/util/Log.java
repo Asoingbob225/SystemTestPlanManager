@@ -23,6 +23,7 @@ public class Log<E> implements ILog<E> {
 	/**
 	 * This is the constructor for the log
 	 */
+	@SuppressWarnings("unchecked")
 	public Log() {
 		size = 0;
 		log = (E[]) new Object[INIT_SIZE];
@@ -38,8 +39,7 @@ public class Log<E> implements ILog<E> {
 		if (element == null) {
 			throw new NullPointerException();
 		}
-		log[INIT_SIZE - size] = element;
-		size++;
+		log[size++] = element;
 	}
 	
 	/**
@@ -51,11 +51,10 @@ public class Log<E> implements ILog<E> {
 	 */
 	@Override
 	public E get(int index) {
-		if (index < INIT_SIZE - size || index > INIT_SIZE) {
+		if (index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException();
 		}
-		E element = log[index];
-		return element;
+		return log[index];
 	}
 	
 	/**

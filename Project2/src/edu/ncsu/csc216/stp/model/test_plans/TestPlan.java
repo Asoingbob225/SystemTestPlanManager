@@ -44,6 +44,7 @@ public class TestPlan extends AbstractTestPlan implements Comparable<TestPlan>{
 	 * Compares the names of the test plans (case insensitive)
 	 */
 	public int compareTo(TestPlan testPlan) {
+		
 		return 0;
 	}
 	

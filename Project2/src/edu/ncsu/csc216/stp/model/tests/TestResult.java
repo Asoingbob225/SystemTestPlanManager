@@ -35,6 +35,8 @@ public class TestResult {
 	 */
 	public TestResult(boolean passing, String actualResults) {
 		//code here
+		setActualResults(actualResults);
+		setPassing(passing);
 	}
 	
 	/**
@@ -51,6 +53,9 @@ public class TestResult {
 	 * @throws IllegalArgumentException if actualResults is null or an empty string
 	 */
 	private void setActualResults(String actualResults) {
+		if (actualResults == null || actualResults.length() == 0) {
+			throw new IllegalArgumentException("Invalid test results.");
+		}
 		this.actualResults = actualResults;
 	}
 	
@@ -76,6 +81,13 @@ public class TestResult {
 	 * "FAIL: " + actualResults if passing == false
 	 */
 	public String toString() {
-		return null;
+		String result = null;
+		if (passing == true) {
+			result = PASS;
+		}
+		else {
+			result = FAIL;
+		}
+		return result + ": " + actualResults;
 	}
 }

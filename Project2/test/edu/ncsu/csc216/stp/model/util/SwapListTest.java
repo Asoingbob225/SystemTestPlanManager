@@ -1,13 +1,12 @@
 /**
  * 
  */
-package util;
+package edu.ncsu.csc216.stp.model.util;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.ncsu.csc216.stp.model.util.SwapList;
 
 /**
  * @author yujim
