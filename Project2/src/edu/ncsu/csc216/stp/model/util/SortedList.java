@@ -40,8 +40,6 @@ public class SortedList<E> implements ISortedList<E> {
 			throw new NullPointerException();
 		}
 		
-		
-		
 		ListNode temp = front;
 		if (size() != 0) {
 			for (int i = 0; i < size(); i++) {
@@ -112,7 +110,13 @@ public class SortedList<E> implements ISortedList<E> {
 	 */
 	@Override
 	public boolean contains(E element) {
-
+		ListNode current = front;
+		for (int i = 0; i < size(); i++) {
+			if (current == element) {
+				return true;
+			}
+			current = current.next;
+		}
 		return false;
 	}
 

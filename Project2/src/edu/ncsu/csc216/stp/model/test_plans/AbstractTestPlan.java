@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import edu.ncsu.csc216.stp.model.tests.TestCase;
 import edu.ncsu.csc216.stp.model.util.ISwapList;
+import edu.ncsu.csc216.stp.model.util.SwapList;
 
 /**
  * 
@@ -31,7 +32,11 @@ public abstract class AbstractTestPlan {
 	 * @throws IllegalArgumentException if testPlanName is null or an empty string
 	 */
 	public AbstractTestPlan(String testPlanName) {
+		if (testPlanName == null || "".equals(testPlanName)) {
+			throw new IllegalArgumentException("Invalid name.");
+		}
 		setTestPlanName(testPlanName);
+		testCases = new SwapList<TestCase>();
 	}
 	
 	/**
@@ -40,6 +45,9 @@ public abstract class AbstractTestPlan {
 	 * @throws IllegalArgumentException if testPlanName is null or an empty string
 	 */
 	public void setTestPlanName(String testPlanName) {
+		if (testPlanName == null || "".equals(testPlanName)) {
+			throw new IllegalArgumentException("Invalid name.");
+		}
 		this.testPlanName = testPlanName;
 	}
 	
@@ -65,7 +73,7 @@ public abstract class AbstractTestPlan {
 	 * @param testCase the test case
 	 */
 	public void addTestCase(TestCase testCase) {
-		//add code
+		testCases.add(testCase);
 	}
 	
 	/**
@@ -75,7 +83,8 @@ public abstract class AbstractTestPlan {
 	 * @return removedTestCase the test case that was removed
 	 */
 	public TestCase removeTestCase(int index) {
-		return null;
+		TestCase removedTestCase = testCases.remove(index);
+		return removedTestCase;
 	}
 	
 	/**
@@ -84,7 +93,8 @@ public abstract class AbstractTestPlan {
 	 * @return testCase the testCase at the given index
 	 */
 	public TestCase getTestCase(int index) {
-		return null;
+		TestCase testCase = testCases.get(index);
+		return testCase;
 	}
 	
 	/**
@@ -92,7 +102,14 @@ public abstract class AbstractTestPlan {
 	 * @return count the amount of failing test cases
 	 */
 	public int getNumberOfFailingTests() {
-		return 0;
+		int count = 0;
+		for (int i = 0; i < testCases.size(); i++) {
+			if (testCases.get(i).isTestCasePassing()) {
+			} else {
+				count++;
+			}
+		}
+		return count;
 	}
 	
 	/**
@@ -103,7 +120,7 @@ public abstract class AbstractTestPlan {
 	 * @param actualResults the results of the test 
 	 */
 	public void addTestResult(int index, boolean passing, String actualResults) {
-		//add code
+		testCases.get(index).addTestResult(passing, actualResults);
 	}
 	
 	
@@ -134,6 +151,6 @@ public abstract class AbstractTestPlan {
 		if (getClass() != obj.getClass())
 			return false;
 		AbstractTestPlan other = (AbstractTestPlan) obj;
-		return Objects.equals(testCases, other.testCases) && Objects.equals(testPlanName, other.testPlanName);
+		return Objects.equals(testCases, other.testCases) && Objects.equals(testPlanName.toUpperCase(), other.testPlanName.toUpperCase());
 	}
 }

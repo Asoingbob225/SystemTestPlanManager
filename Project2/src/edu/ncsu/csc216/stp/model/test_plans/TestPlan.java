@@ -20,7 +20,9 @@ public class TestPlan extends AbstractTestPlan implements Comparable<TestPlan>{
 	 */
 	public TestPlan(String testPlanName) {
 		super(testPlanName);
-		// add code
+		if (testPlanName.equals(FailingTestList.FAILING_TEST_LIST_NAME)) {
+			throw new IllegalArgumentException("Invalid name.");
+		}
 	}
 	
 	/**
@@ -29,22 +31,32 @@ public class TestPlan extends AbstractTestPlan implements Comparable<TestPlan>{
 	 * @return array the 2D array
 	 */
 	public String[][] getTestCasesAsArray() {
-		return null;
+		String[][] array = new String[getTestCases().size()][3];
+		for (int i = 0; i < getTestCases().size(); i++) {
+			array[i][0] = getTestCases().get(i).getTestCaseId();
+			array[i][1] = getTestCases().get(i).getTestType();
+			array[i][2] = getTestCases().get(i).getStatus();
+		}
+		return array;
+		
 	}
 	
 	/**
 	 * This adds the test case via the super and it sets the testCase's TestPlan to the current TestPlan
+	 * @param testCase the case to add
 	 */
 	@Override
 	public void addTestCase(TestCase testCase) {
-		//add code
+		super.addTestCase(testCase);
 	}
 	
 	/**
 	 * Compares the names of the test plans (case insensitive)
 	 */
 	public int compareTo(TestPlan testPlan) {
-		
+		if (testPlan.getTestPlanName().toUpperCase().equals(this.getTestPlanName().toUpperCase())) {
+			return 1;
+		}
 		return 0;
 	}
 	
