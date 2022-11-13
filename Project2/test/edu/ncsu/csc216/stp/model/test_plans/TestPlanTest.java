@@ -48,8 +48,10 @@ class TestPlanTest {
 		TestPlan testPlan = new TestPlan("Test");
 		TestPlan testPlan2 = new TestPlan("Test2");
 		TestPlan testPlan3 = new TestPlan("test");
-		assertEquals(0, testPlan.compareTo(testPlan2));
-		assertEquals(1, testPlan.compareTo(testPlan3));
+		TestPlan testPlan4 = new TestPlan("TENT");
+		assertEquals(0, testPlan.compareTo(testPlan3));
+		assertEquals(-1, testPlan.compareTo(testPlan2));
+		assertEquals(1, testPlan.compareTo(testPlan4));
 	}
 	
 	@Test
