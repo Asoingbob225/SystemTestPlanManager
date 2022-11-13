@@ -56,7 +56,7 @@ class SortedListTest {
 		sortedList.remove(2);
 		assertEquals(2, sortedList.size());
 		
-		assertThrows(NullPointerException.class,
+		assertThrows(IndexOutOfBoundsException.class,
 				() -> sortedList.remove(-1));
 		
 		
