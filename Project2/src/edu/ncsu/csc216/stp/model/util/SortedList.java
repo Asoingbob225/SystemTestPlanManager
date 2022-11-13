@@ -3,9 +3,6 @@
  */
 package edu.ncsu.csc216.stp.model.util;
 
-import java.util.Objects;
-
-import edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan;
 
 /**
  * This is the SortedList class. It implements the ISortedList<E> interface.
@@ -14,7 +11,7 @@ import edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan;
  * @author stbeuav
  *
  */
-public class SortedList<E> implements ISortedList<E> {
+public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 
 	/** The size of the sorted list */
 	private int size;
@@ -45,36 +42,28 @@ public class SortedList<E> implements ISortedList<E> {
 		}
 		
 		ListNode temp = front;
+		//duplicates check using compareTo
 		if (size() != 0) {
 			for (int i = 0; i < size(); i++) {
-				if (compareTo(temp.data) == 1) {
+				if (element.compareTo(temp.data) == 0) {
 					throw new IllegalArgumentException();
 				}
 				temp = temp.next;
 			}
 		}
-		if (size == 0) {
+		
+		//adding to an empty list or front of the list
+		if (front == null || front.data.compareTo(element) > 0) {
 			front = new ListNode(element, front);
-			size++;
-			return;
 		}
-		temp = front;
-		if (temp.data.toString().compareTo(element.toString()) > 0) {
-			temp = new ListNode(element, front);
-			size++;
-			return;
-		}
-		for (int i = 0; i < size() - 1; i++) {
-			if (((Comparable<E>) temp.next.data).compareTo(element) > 0) {
-				temp.next = new ListNode(element, temp.next);
-				size++;
-				return;
+		else {
+			temp = front;
+			while (temp.next != null && temp.next.data.compareTo(element) < 0) {
+				temp = temp.next;
 			}
-			temp = temp.next;
+			temp.next = new ListNode(element, temp.next);
 		}
-		temp.next = new ListNode(element);
 		size++;
-
 	}
 
 	/**
@@ -104,18 +93,6 @@ public class SortedList<E> implements ISortedList<E> {
 		}
 		size--;
 		return element;
-	}
-
-	/**
-	 * This checks if the index is valid
-	 * 
-	 * @param index the index to check at
-	 * @throws IndexOutOfBoundsException if the index is out of bounds for the list
-	 */
-	private void checkIndex(int index) {
-		if (index < 0 || index > size - 1) {
-			throw new IndexOutOfBoundsException();
-		}
 	}
 
 	/**
@@ -207,25 +184,27 @@ public class SortedList<E> implements ISortedList<E> {
 	 */
 	@Override
 	public int compareTo(E o) {
-		if (this == o)
-			return 1;
-		if (o == null)
-			return 0;
-		if (getClass() != o.getClass())
-			return 0;
-		for (int i = 0; i < size(); i++) {
-			if (get(i) == o) {
-				return 0;
-			}
-			if (get(i).toString().charAt(i) > o.toString().charAt(i)) {
-				return 1;
-			}
-			if (get(i).toString().charAt(i) < o.toString().charAt(i)) {
-				return -1;
-			}
-			
-		}
-		return 0;
+//		if (this == o)
+//			return 1;
+//		if (o == null)
+//			return 0;
+//		if (getClass() != o.getClass())
+//			return 0;
+//		for (int i = 0; i < size(); i++) {
+//			if (get(i) == o) {
+//				return 0;
+//			}
+//			if (get(i).toString().charAt(i) > o.toString().charAt(i)) {
+//				return 1;
+//			}
+//			if (get(i).toString().charAt(i) < o.toString().charAt(i)) {
+//				return -1;
+//			}
+//			
+//		}
+//		return 0;
+		return this.compareTo(o);
+		
 	}
 
 

@@ -1,11 +1,14 @@
 package edu.ncsu.csc216.stp.model.io;
 
-import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan;
 import edu.ncsu.csc216.stp.model.test_plans.TestPlan;
 import edu.ncsu.csc216.stp.model.tests.TestCase;
 import edu.ncsu.csc216.stp.model.util.ISortedList;
+import edu.ncsu.csc216.stp.model.util.SortedList;
 
 /**
  * This class receives a file for a TestPlan and reads it. It makes 
@@ -23,8 +26,44 @@ public class TestPlanReader {
 	 * @throws IllegalArgumentException if the file does not exist or if the first 
 	 * character of the file is not a "!"
 	 */
-	public static ISortedList<TestPlan> readTestPlansFile(File filename) {
-		return null;
+	public static ISortedList<TestPlan> readTestPlansFile(String filename) {
+		ISortedList<TestPlan> testPlans = new SortedList<TestPlan>();
+		Scanner fileReader;
+		try {
+			fileReader = new Scanner(new FileInputStream(filename)); // Create a file scanner to read the file
+
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException("Unable to load file.");
+
+		}
+
+		String fileString = "";
+
+		while (fileReader.hasNextLine()) {
+			fileString += fileReader.nextLine() + "\n";
+
+		}
+		fileReader.close();
+		
+		if (fileString.charAt(0) != '!') {
+			throw new IllegalArgumentException("Unable to load file");
+		}
+		
+		Scanner n = new Scanner(fileString);
+		n.useDelimiter("\\r?\\n?[!]");
+		
+		while (n.hasNext()) {
+			try {
+				testPlans.add(processTestPlan(n.next()));
+			} catch (Exception e) {
+				n.close();
+				return testPlans;
+			}
+		}
+
+		n.close();
+		
+		return testPlans;
 	}
 	
 	/**
@@ -33,7 +72,22 @@ public class TestPlanReader {
 	 * @return testplan the test plan
 	 */
 	private static TestPlan processTestPlan(String line) {
-		return null;
+		Scanner n = new Scanner(line);
+		String testPlanName = n.nextLine().trim();
+		System.out.println(testPlanName);
+		TestPlan testPlan = new TestPlan(testPlanName);
+		n.useDelimiter("\\r?\\n?[#]");
+		
+		while(n.hasNext()) {
+			try {
+				testPlan.addTestCase(processTest(testPlan, n.next()));
+			} catch (Exception e) {
+				n.close();
+			}
+		}
+		n.close();
+		
+		return testPlan;
 	}
 	
 	/**
@@ -44,6 +98,37 @@ public class TestPlanReader {
 	 * @return test the test case
 	 */
 	private static TestCase processTest(AbstractTestPlan testPlan, String line) {
+		
+		String id = "";
+		String type = "";
+		String description = "";
+		String expected = "";
+		String actual = "";
+		
+		Scanner n = new Scanner(line);
+		
+		Scanner m = new Scanner(n.nextLine());
+		m.useDelimiter(",");
+		id = m.next().trim();
+		type = m.next().trim();
+		if (m.hasNext()) {
+			m.close();
+			n.close();
+			throw new IllegalArgumentException();
+		}
+		
+		n.useDelimiter("\\r?\\n?[-]");
+		Scanner k = new Scanner(n.nextLine());
+		k.useDelimiter("\\r?\\n?[*]");
+		description = k.next().trim();
+		
+		
+
+		System.out.println(id);
+		System.out.println(type);
+		System.out.println(description);
+		
+		
 		return null;
 	}
 

@@ -8,7 +8,7 @@ package edu.ncsu.csc216.stp.model.util;
  * 
  * @param <E> type for ISortedList; must implement Comparable
  */
-public interface ISortedList<E> extends Comparable<E> {
+public interface ISortedList<E> {
 	
 	/**
 	 * Adds the element to the list in sorted order.
@@ -49,5 +49,11 @@ public interface ISortedList<E> extends Comparable<E> {
 	 * @return number of elements in the list
 	 */
 	int size();
+
+	/**
+	 * This compares the sorted list to another sorted list
+	 * @param o the other sorted list
+	 */
+	int compareTo(E o);
 
 }

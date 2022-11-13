@@ -35,8 +35,12 @@ class SortedListTest {
 		sortedList.add(4);
 		sortedList.add(5);
 		sortedList.add(-5);
-		assertEquals(4, sortedList.get(1));
-		assertEquals(7, sortedList.get(3));
+		assertEquals(-5, sortedList.get(0));
+		assertEquals(0, sortedList.get(1));
+		assertEquals(4, sortedList.get(2));
+		assertEquals(5, sortedList.get(3));
+		assertEquals(7, sortedList.get(4));
+		
 		assertThrows(NullPointerException.class,
 				() -> sortedList.add(null));
 	}
@@ -56,7 +60,7 @@ class SortedListTest {
 		sortedList.remove(2);
 		assertEquals(2, sortedList.size());
 		
-		assertThrows(NullPointerException.class,
+		assertThrows(IndexOutOfBoundsException.class,
 				() -> sortedList.remove(-1));
 		
 		
