@@ -101,6 +101,7 @@ public class TestPlanReader {
 		
 		String id = "";
 		String type = "";
+		String descriptionandexpected = "";
 		String description = "";
 		String expected = "";
 		String actual = "";
@@ -116,18 +117,33 @@ public class TestPlanReader {
 			n.close();
 			throw new IllegalArgumentException();
 		}
+		m.close();
 		
 		n.useDelimiter("\\r?\\n?[-]");
-		Scanner k = new Scanner(n.nextLine());
-		k.useDelimiter("\\r?\\n?[*]");
-		description = k.next().trim();
+
+		for (int i = 0; i < 2; i++) {
+			if (i == 0) {
+				descriptionandexpected = n.next().trim();
+			}
+			if (i == 1) {
+				actual = n.next().trim();
+			}
+		}
+		
+		descriptionandexpected = descriptionandexpected.substring(2);
+		String [] d = descriptionandexpected.split("\\r?\\n?[*]");
+		description = d[0].trim();
+		expected = d[1].trim();
+		
+		
 		
 		
 
 		System.out.println(id);
 		System.out.println(type);
 		System.out.println(description);
-		
+		System.out.println(expected);
+		System.out.println(actual);
 		
 		
 		return null;
