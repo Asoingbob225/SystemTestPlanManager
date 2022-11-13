@@ -3,6 +3,10 @@
  */
 package edu.ncsu.csc216.stp.model.util;
 
+import java.util.Objects;
+
+import edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan;
+
 /**
  * This is the SortedList class. It implements the ISortedList<E> interface.
  * This is a list that can take any list of elements and sorts them.
@@ -43,7 +47,7 @@ public class SortedList<E> implements ISortedList<E> {
 		ListNode temp = front;
 		if (size() != 0) {
 			for (int i = 0; i < size(); i++) {
-				if (compareTo(temp.data) == 0) {
+				if (compareTo(temp.data) == 1) {
 					throw new IllegalArgumentException();
 				}
 				temp = temp.next;
@@ -55,7 +59,17 @@ public class SortedList<E> implements ISortedList<E> {
 			return;
 		}
 		temp = front;
+		if (temp.data.toString().compareTo(element.toString()) > 0) {
+			temp = new ListNode(element, front);
+			size++;
+			return;
+		}
 		for (int i = 0; i < size() - 1; i++) {
+			if (((Comparable<E>) temp.next.data).compareTo(element) > 0) {
+				temp.next = new ListNode(element, temp.next);
+				size++;
+				return;
+			}
 			temp = temp.next;
 		}
 		temp.next = new ListNode(element);
@@ -92,15 +106,17 @@ public class SortedList<E> implements ISortedList<E> {
 		return element;
 	}
 
-//	/**
-//	 * This checks if the index is valid
-//	 * 
-//	 * @param index the index to check at
-//	 * @throws IndexOutOfBoundsException if the index is out of bounds for the list
-//	 */
-//	private void checkIndex(int index) {
-//		// code here
-//	}
+	/**
+	 * This checks if the index is valid
+	 * 
+	 * @param index the index to check at
+	 * @throws IndexOutOfBoundsException if the index is out of bounds for the list
+	 */
+	private void checkIndex(int index) {
+		if (index < 0 || index > size - 1) {
+			throw new IndexOutOfBoundsException();
+		}
+	}
 
 	/**
 	 * Returns true if the element is in the list.
@@ -112,7 +128,7 @@ public class SortedList<E> implements ISortedList<E> {
 	public boolean contains(E element) {
 		ListNode current = front;
 		for (int i = 0; i < size(); i++) {
-			if (current == element) {
+			if (current.data == element) {
 				return true;
 			}
 			current = current.next;
@@ -146,7 +162,7 @@ public class SortedList<E> implements ISortedList<E> {
 	 */
 	@Override
 	public int size() {
-		return 0;
+		return size;
 	}
 
 	/**
@@ -185,9 +201,30 @@ public class SortedList<E> implements ISortedList<E> {
 		}
 	}
 
+	/**
+	 * This compares the sorted list to another sorted list
+	 * @param o the other sorted list
+	 */
 	@Override
 	public int compareTo(E o) {
-		// TODO Auto-generated method stub
+		if (this == o)
+			return 1;
+		if (o == null)
+			return 0;
+		if (getClass() != o.getClass())
+			return 0;
+		for (int i = 0; i < size(); i++) {
+			if (get(i) == o) {
+				return 0;
+			}
+			if (get(i).toString().charAt(i) > o.toString().charAt(i)) {
+				return 1;
+			}
+			if (get(i).toString().charAt(i) < o.toString().charAt(i)) {
+				return -1;
+			}
+			
+		}
 		return 0;
 	}
 
