@@ -127,7 +127,6 @@ public class TestPlanReader {
 		System.out.println(id);
 		System.out.println(type);
 		System.out.println(description);
-		System.out.println("hello");
 		
 		
 		
