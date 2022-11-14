@@ -35,7 +35,7 @@ public class TestPlanWriter {
 		
 		for (int i = 0; i < testPlans.size(); i++) {
 			fileWriter.println("! " + testPlans.get(i).getTestPlanName());
-			for (int j = 0; j < testPlans.get(i).getTestCases().size(); i++){
+			for (int j = 0; j < testPlans.get(i).getTestCases().size(); j++){
 				fileWriter.println(testPlans.get(i).getTestCases().get(j).toString());
 			}
 

@@ -37,10 +37,10 @@ class TestPlanWriterTest {
 		TestCase t1 = new TestCase("ID 1", "type 1", "description 1", "expected results 1");
 		TestCase t2 = new TestCase("ID 2", "type 2", "description 2", "expected results 2");
 		t0.addTestResult(false, "actual results 0-1");
-		t1.addTestResult(true, "PASS: actual results 1-1");
-		t1.addTestResult(true, "FAIL: actual results 1-2");
-		t2.addTestResult(true, "PASS: actual results 2-1");
-		t2.addTestResult(true, "PASS: actual results 2-2");
+		t1.addTestResult(true, "actual results 1-1");
+		t1.addTestResult(false, "actual results 1-2");
+		t2.addTestResult(true, "actual results 2-1");
+		t2.addTestResult(true, "actual results 2-2");
 		
 		plan1.addTestCase(t0);
 		plan1.addTestCase(t1);

@@ -220,7 +220,11 @@ public class TestCase {
 		String log = "";
 
 		for (int i = 0; i < testResults.size(); i++) {
-			log += "- " + testResults.get(i).toString() + "\n";
+			if (i == testResults.size() - 1) {
+				log += "- " + testResults.get(i).toString();
+			} else {
+				log += "- " + testResults.get(i).toString() + "\n";
+			}
 		}
 		return log;
 	}

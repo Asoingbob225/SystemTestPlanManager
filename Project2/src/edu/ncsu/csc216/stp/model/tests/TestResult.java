@@ -88,6 +88,6 @@ public class TestResult {
 		else {
 			result = FAIL;
 		}
-		return result + ": " + actualResults;
+		return result.toUpperCase() + ": " + actualResults;
 	}
 }

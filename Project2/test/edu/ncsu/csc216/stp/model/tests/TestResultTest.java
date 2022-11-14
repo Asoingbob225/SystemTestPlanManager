@@ -35,7 +35,7 @@ class TestResultTest {
 	@Test
 	void testToString() {
 		TestResult t = new TestResult(true, ACTUAL);
-		assertEquals("Pass: result", t.toString());
+		assertEquals("PASS: result", t.toString());
 	}
 
 }
