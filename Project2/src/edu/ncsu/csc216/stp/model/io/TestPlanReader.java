@@ -78,7 +78,7 @@ public class TestPlanReader {
 	private static TestPlan processTestPlan(String line) {
 		Scanner n = new Scanner(line);
 		String testPlanName = n.nextLine().trim();
-		System.out.println(testPlanName);
+		//System.out.println(testPlanName);
 		TestPlan testPlan = new TestPlan(testPlanName);
 		n.useDelimiter("\\r?\\n?[#]");
 		
