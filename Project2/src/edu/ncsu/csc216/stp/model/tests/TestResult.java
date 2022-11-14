@@ -82,7 +82,7 @@ public class TestResult {
 	 */
 	public String toString() {
 		String result = null;
-		if (passing == true) {
+		if (passing) {
 			result = PASS;
 		}
 		else {
