@@ -4,6 +4,8 @@
 package edu.ncsu.csc216.stp.model.io;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 
 import edu.ncsu.csc216.stp.model.test_plans.TestPlan;
 import edu.ncsu.csc216.stp.model.util.ISortedList;
@@ -23,8 +25,26 @@ public class TestPlanWriter {
 	 * @param filename the file name to write to
 	 * @param testPlans the ISortedList of TestPlans
 	 */
-	public static void writeTestPlanFile(File filename, ISortedList<TestPlan> testPlans) {
-		//add code
+	public static void writeTestPlanFile(String filename, ISortedList<TestPlan> testPlans) {
+		PrintStream fileWriter;
+		try {
+			fileWriter = new PrintStream(new File(filename));
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException("Unable to save file");
+		} 
+		
+		for (int i = 0; i < testPlans.size(); i++) {
+			fileWriter.println("! " + testPlans.get(i).getTestPlanName());
+			for (int j = 0; j < testPlans.get(i).getTestCases().size(); i++){
+				fileWriter.println(testPlans.get(i).getTestCases().get(j).toString());
+			}
+
+		}
+		
+		fileWriter.println();
+		
+		fileWriter.close();
+		
 	}
 
 }
