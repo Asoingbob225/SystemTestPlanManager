@@ -29,8 +29,14 @@ class TestPlanReaderTest {
 	void testReadTestPlansFile() {
 		ISortedList<TestPlan> testPlans = TestPlanReader.readTestPlansFile(validTestFile);
 		assertEquals(2, testPlans.size());
-
-
+		
+		assertEquals("PackScheduler", testPlans.get(0).getTestPlanName());
+		assertEquals("WolfScheduler", testPlans.get(1).getTestPlanName());
+		
+		assertEquals(2, testPlans.get(0).getTestCases().size());
+		assertEquals(3, testPlans.get(1).getTestCases().size());
+		
+		assertThrows(IllegalArgumentException.class, () -> TestPlanReader.readTestPlansFile(invalidTestFile));
 		
 	}
 
