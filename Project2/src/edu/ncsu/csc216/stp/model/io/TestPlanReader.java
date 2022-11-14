@@ -1,5 +1,6 @@
 package edu.ncsu.csc216.stp.model.io;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -26,7 +27,7 @@ public class TestPlanReader {
 	 * @throws IllegalArgumentException if the file does not exist or if the first 
 	 * character of the file is not a "!"
 	 */
-	public static ISortedList<TestPlan> readTestPlansFile(String filename) {
+	public static ISortedList<TestPlan> readTestPlansFile(File filename) {
 		ISortedList<TestPlan> testPlans = new SortedList<TestPlan>();
 		Scanner fileReader;
 		try {
@@ -128,6 +129,8 @@ public class TestPlanReader {
 		
 		results = n.next().trim();
 		
+		n.close();
+		
 		String [] r = results.split("\\r?\\n?[-]");
 		
 		expected = r[0].replaceAll("[\\t\\n\\r]", " ");
@@ -145,7 +148,7 @@ public class TestPlanReader {
 			testCase.addTestResult(testStatus, r[i].substring(6).trim().replaceAll("[\\t\\n\\r]", " "));
 		}
 		
-		n.close();
+		
 		return testCase;
 		
 	}

@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.File;
+
 import edu.ncsu.csc216.stp.model.test_plans.TestPlan;
 import edu.ncsu.csc216.stp.model.util.ISortedList;
 
@@ -27,7 +29,7 @@ class TestPlanReaderTest {
 	 */
 	@Test
 	void testReadTestPlansFile() {
-		ISortedList<TestPlan> testPlans = TestPlanReader.readTestPlansFile(validTestFile);
+		ISortedList<TestPlan> testPlans = TestPlanReader.readTestPlansFile(new File(validTestFile));
 		assertEquals(2, testPlans.size());
 		
 		assertEquals("PackScheduler", testPlans.get(0).getTestPlanName());
@@ -36,7 +38,7 @@ class TestPlanReaderTest {
 		assertEquals(2, testPlans.get(0).getTestCases().size());
 		assertEquals(3, testPlans.get(1).getTestCases().size());
 		
-		assertThrows(IllegalArgumentException.class, () -> TestPlanReader.readTestPlansFile(invalidTestFile));
+		assertThrows(IllegalArgumentException.class, () -> TestPlanReader.readTestPlansFile(new File(invalidTestFile)));
 		
 	}
 

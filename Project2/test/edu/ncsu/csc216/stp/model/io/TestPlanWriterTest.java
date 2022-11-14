@@ -50,10 +50,10 @@ class TestPlanWriterTest {
 		tp.add(plan1);
 		tp.add(plan2);
 		
-		TestPlanWriter.writeTestPlanFile("test-files/actual_out.txt", tp);
+		TestPlanWriter.writeTestPlanFile(new File("test-files/actual_out.txt"), tp);
 		checkFiles("test-files/expected_out.txt", "test-files/actual_out.txt");
 		
-		assertThrows(IllegalArgumentException.class, () -> TestPlanWriter.writeTestPlanFile("", tp));
+		assertThrows(IllegalArgumentException.class, () -> TestPlanWriter.writeTestPlanFile(new File(""), tp));
 		
 	}
 	

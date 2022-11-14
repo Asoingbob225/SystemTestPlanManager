@@ -25,10 +25,10 @@ public class TestPlanWriter {
 	 * @param filename the file name to write to
 	 * @param testPlans the ISortedList of TestPlans
 	 */
-	public static void writeTestPlanFile(String filename, ISortedList<TestPlan> testPlans) {
+	public static void writeTestPlanFile(File filename, ISortedList<TestPlan> testPlans) {
 		PrintStream fileWriter;
 		try {
-			fileWriter = new PrintStream(new File(filename));
+			fileWriter = new PrintStream(filename);
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException("Unable to save file");
 		} 
