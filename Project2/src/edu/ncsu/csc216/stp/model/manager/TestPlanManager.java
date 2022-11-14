@@ -5,11 +5,14 @@ package edu.ncsu.csc216.stp.model.manager;
 
 import java.io.File;
 
+import edu.ncsu.csc216.stp.model.io.TestPlanReader;
+import edu.ncsu.csc216.stp.model.io.TestPlanWriter;
 import edu.ncsu.csc216.stp.model.test_plans.AbstractTestPlan;
 import edu.ncsu.csc216.stp.model.test_plans.FailingTestList;
 import edu.ncsu.csc216.stp.model.test_plans.TestPlan;
 import edu.ncsu.csc216.stp.model.tests.TestCase;
 import edu.ncsu.csc216.stp.model.util.ISortedList;
+import edu.ncsu.csc216.stp.model.util.SortedList;
 
 /**
  * 
@@ -40,8 +43,10 @@ public class TestPlanManager {
 	 * initializes the isChanged bo0lean to false.
 	 */
 	public TestPlanManager() {
-		//code here
-		
+		testPlans = new SortedList<TestPlan>();
+		failingTests = new FailingTestList();
+		currentTestPlan = failingTests;
+		isChanged = false;
 	}
 	
 	/**
@@ -52,7 +57,14 @@ public class TestPlanManager {
 	 * @param testPlanFile the testPlanFile to read through
 	 */
 	public void loadTestPlans(File testPlanFile) {
-		//code here
+		ISortedList<TestPlan> potentialTestPlans = new SortedList<TestPlan>();
+		testPlans = TestPlanReader.readTestPlansFile(testPlanFile);
+		for (int i = 0; i < potentialTestPlans.size(); i++) {
+			testPlans.add(potentialTestPlans.get(i));
+		}
+		currentTestPlan = failingTests;
+		isChanged = true;
+		
 	}
 	
 	/**
@@ -60,7 +72,8 @@ public class TestPlanManager {
 	 * @param testPlanFile
 	 */
 	public void saveTestPlans(File testPlanFile) {
-		//code here
+		TestPlanWriter.writeTestPlanFile(testPlanFile, testPlans);
+		isChanged = false;
 	}
 	
 	/**
@@ -78,7 +91,17 @@ public class TestPlanManager {
 	 * is a name that is already in the list of test plans.
 	 */
 	public void addTestPlan(String testPlanName) {
-		//add code
+		if (testPlanName.equals(FailingTestList.FAILING_TEST_LIST_NAME)) {
+			throw new IllegalArgumentException("Invalid name.");
+		}
+		for (int i = 0; i < testPlans.size(); i++) {
+			if (testPlans.get(i).getTestPlanName().equals(testPlanName)) {
+				throw new IllegalArgumentException("Invalid name.");
+			}
+		}
+		TestPlan newTestPlan = new TestPlan(testPlanName);
+		testPlans.add(newTestPlan);
+		
 	}
 	
 	/**
@@ -86,7 +109,12 @@ public class TestPlanManager {
 	 * @return testPlanNames the list of test plan names
 	 */
 	public String[] getTestPlanNames() {
-		return null;
+		String[] testNames = new String[testPlans.size()];
+		testNames[0] = failingTests.getTestPlanName();
+		for (int i = 1; i < testPlans.size(); i++) {
+			testNames[i] = testPlans.get(i).getTestPlanName();
+		}
+		return testNames;
 	}
 	
 	/**
@@ -94,7 +122,14 @@ public class TestPlanManager {
 	 * failing tests.
 	 */
 	private void getFailingTests() {
-		//add code
+		failingTests.clearTests();
+		for (int i = 0; i < testPlans.size(); i++) {
+			for (int j = 0; j < testPlans.get(i).getTestCases().size(); j++) {
+				if (!(testPlans.get(i).getTestCase(j).isTestCasePassing())) {
+				failingTests.addTestCase(testPlans.get(i).getTestCase(j));
+				}
+			}
+		}
 	}
 	
 	/**
@@ -104,7 +139,15 @@ public class TestPlanManager {
 	 * @param testPlanName
 	 */
 	public void setCurrentTestPlan(String testPlanName) {
-		//add code
+		for (int i = 0; i < testPlans.size(); i++) {
+			if (testPlans.get(i).getTestPlanName().equals(testPlanName)) {
+				currentTestPlan = testPlans.get(i);
+				return;
+			}
+		}
+		getFailingTests();
+		currentTestPlan = failingTests;
+		
 	}
 	
 	/**
