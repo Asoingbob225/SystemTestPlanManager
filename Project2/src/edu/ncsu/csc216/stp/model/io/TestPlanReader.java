@@ -63,13 +63,17 @@ public class TestPlanReader {
 
 		n.close();
 		
+//		System.out.println(testPlans.get(0).getTestPlanName());
+//		System.out.println(testPlans.get(1).getTestPlanName());
+
+		
 		return testPlans;
 	}
 	
 	/**
 	 * This processes individual test plans and sorts them into different tests
 	 * @param line the line that is being read
-	 * @return testplan the test plan
+	 * @return testPlan the test plan
 	 */
 	private static TestPlan processTestPlan(String line) {
 		Scanner n = new Scanner(line);
@@ -101,10 +105,9 @@ public class TestPlanReader {
 		
 		String id = "";
 		String type = "";
-		String descriptionandexpected = "";
 		String description = "";
 		String expected = "";
-		String actual = "";
+		String results = "";
 		
 		Scanner n = new Scanner(line);
 		
@@ -119,34 +122,32 @@ public class TestPlanReader {
 		}
 		m.close();
 		
-		n.useDelimiter("\\r?\\n?[-]");
+		n.useDelimiter("\\r?\\n?[*]");
+		
+		description = n.next().trim().replaceAll("[\\t\\n\\r]", " ");
+		
+		results = n.next().trim();
+		
+		String [] r = results.split("\\r?\\n?[-]");
+		
+		expected = r[0].replaceAll("[\\t\\n\\r]", " ");
+		
+		TestCase testCase = new TestCase(id, type, description, expected);
 
-		for (int i = 0; i < 2; i++) {
-			if (i == 0) {
-				descriptionandexpected = n.next().trim();
+		for (int i = 1; i < r.length; i++) {
+			boolean testStatus = false;
+			if ("FAIL".equals(r[i].substring(0, 4))) {
+				testStatus = false;
 			}
-			if (i == 1) {
-				actual = n.next().trim();
+			else if ("TRUE".equals(r[i].substring(0, 4))) {
+				testStatus = true;
 			}
+			testCase.addTestResult(testStatus, r[i].substring(6).trim().replaceAll("[\\t\\n\\r]", " "));
 		}
 		
-		descriptionandexpected = descriptionandexpected.substring(2);
-		String [] d = descriptionandexpected.split("\\r?\\n?[*]");
-		description = d[0].trim();
-		expected = d[1].trim();
+		n.close();
+		return testCase;
 		
-		
-		
-		
-
-		System.out.println(id);
-		System.out.println(type);
-		System.out.println(description);
-		System.out.println(expected);
-		System.out.println(actual);
-		
-		
-		return null;
 	}
 
 }

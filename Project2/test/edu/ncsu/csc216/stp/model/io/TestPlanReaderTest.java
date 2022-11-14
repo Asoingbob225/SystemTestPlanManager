@@ -5,6 +5,8 @@ package edu.ncsu.csc216.stp.model.io;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import edu.ncsu.csc216.stp.model.test_plans.TestPlan;
 import edu.ncsu.csc216.stp.model.util.ISortedList;
 
@@ -26,6 +28,10 @@ class TestPlanReaderTest {
 	@Test
 	void testReadTestPlansFile() {
 		ISortedList<TestPlan> testPlans = TestPlanReader.readTestPlansFile(validTestFile);
+		assertEquals(2, testPlans.size());
+
+
+		
 	}
 
 }
