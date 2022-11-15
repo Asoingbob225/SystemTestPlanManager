@@ -112,11 +112,11 @@ public class TestPlanManager {
 	 *                                  test plans.
 	 */
 	public void addTestPlan(String testPlanName) {
-		if (testPlanName.equals(FailingTestList.FAILING_TEST_LIST_NAME)) {
+		if (testPlanName.toUpperCase().equals(FailingTestList.FAILING_TEST_LIST_NAME.toUpperCase())) {
 			throw new IllegalArgumentException("Invalid name.");
 		}
 		for (int i = 0; i < testPlans.size(); i++) {
-			if (testPlans.get(i).getTestPlanName().equals(testPlanName)) {
+			if (testPlans.get(i).getTestPlanName().toUpperCase().equals(testPlanName.toUpperCase())) {
 				throw new IllegalArgumentException("Invalid name.");
 			}
 		}
@@ -254,12 +254,13 @@ public class TestPlanManager {
 		if (currentTestPlan == failingTests) {
 			isChanged = false; // do nothing
 		} else {
+			isChanged = true;
 			currentTestPlan.addTestCase(testCase);
 			if (!testCase.isTestCasePassing()) {
 				getFailingTests();
 			}
 		}
-		isChanged = true;
+		
 	}
 
 	/**
