@@ -15,10 +15,10 @@ package edu.ncsu.csc216.stp.model.tests;
 public class TestResult {
 
 	/** The string for a passing test case */
-	public static final String PASS = "Pass";
+	public static final String PASS = "PASS";
 
 	/** The string for a failing test case */
-	public static final String FAIL = "Fail";
+	public static final String FAIL = "FAIL";
 
 	/** A boolean for if it is passing or not */
 	private boolean passing;

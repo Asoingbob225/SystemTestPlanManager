@@ -71,7 +71,7 @@ public class TestCase {
 	 */
 	private void setTestCaseId(String testCaseId) {
 		if (testCaseId == null || testCaseId.length() == 0) {
-			throw new IllegalArgumentException("Invalid test information");
+			throw new IllegalArgumentException("Invalid test information.");
 		}
 		this.testCaseId = testCaseId;
 	}
@@ -93,7 +93,7 @@ public class TestCase {
 	 */
 	private void setTestType(String testType) {
 		if (testType == null || testType.length() == 0) {
-			throw new IllegalArgumentException("Invalid test information");
+			throw new IllegalArgumentException("Invalid test information.");
 		}
 		this.testType = testType;
 	}
@@ -116,7 +116,7 @@ public class TestCase {
 	 */
 	private void setTestDescription(String testDescription) {
 		if (testDescription == null || testDescription.length() == 0) {
-			throw new IllegalArgumentException("Invalid test information");
+			throw new IllegalArgumentException("Invalid test information.");
 		}
 		this.testDescription = testDescription;
 	}
@@ -139,7 +139,7 @@ public class TestCase {
 	 */
 	private void setExpectedResults(String expectedResults) {
 		if (expectedResults == null || expectedResults.length() == 0) {
-			throw new IllegalArgumentException("Invalid test information");
+			throw new IllegalArgumentException("Invalid test information.");
 		}
 		this.expectedResults = expectedResults;
 	}

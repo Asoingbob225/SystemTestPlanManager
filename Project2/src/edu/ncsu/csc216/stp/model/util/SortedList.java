@@ -39,7 +39,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	@Override
 	public void add(E element) {
 		if (element == null) {
-			throw new NullPointerException("Cannot add nulll element.");
+			throw new NullPointerException("Cannot add null element.");
 		}
 
 		ListNode temp = front;
