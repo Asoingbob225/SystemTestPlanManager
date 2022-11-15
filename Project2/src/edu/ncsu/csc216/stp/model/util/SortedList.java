@@ -178,15 +178,5 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 		}
 	}
 
-	/**
-	 * This compares the sorted list to another sorted list
-	 * 
-	 * @param o the other sorted list
-	 */
-	@Override
-	public int compareTo(E o) {
-		return this.compareTo(o);
-
-	}
 
 }

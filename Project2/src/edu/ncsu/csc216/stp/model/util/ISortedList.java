@@ -53,13 +53,4 @@ public interface ISortedList<E> {
 	 */
 	int size();
 
-	/**
-	 * This compares the sorted list to another sorted list
-	 * 
-	 * @param o the other sorted list
-	 * @return -1, 0, or 1 if this object is less than, equal to, or greater than
-	 *         the given parameter object, respectively
-	 */
-	int compareTo(E o);
-
 }
