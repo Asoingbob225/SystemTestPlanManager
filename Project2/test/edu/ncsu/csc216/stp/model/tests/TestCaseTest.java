@@ -68,7 +68,7 @@ class TestCaseTest {
 	@Test
 	void testGetStatus() {
 		TestCase t = new TestCase(ID, TYPE, DESCRIPTION, EXPECTED);
-		assertEquals("Fail", t.getStatus());
+		assertEquals("FAIL", t.getStatus());
 	}
 
 	/**

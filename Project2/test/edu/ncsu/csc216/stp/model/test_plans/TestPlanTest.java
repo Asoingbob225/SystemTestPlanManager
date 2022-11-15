@@ -82,7 +82,7 @@ class TestPlanTest {
 		
 		testPlan.addTestCase(testCase);
 		testPlan.addTestResult(0, true, "results");
-		assertEquals("Pass", testPlan.getTestCase(0).getStatus());
+		assertEquals("PASS", testPlan.getTestCase(0).getStatus());
 	}
 
 }
