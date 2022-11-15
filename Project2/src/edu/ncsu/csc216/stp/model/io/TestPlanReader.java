@@ -142,7 +142,7 @@ public class TestPlanReader {
 			if ("FAIL".equals(r[i].substring(0, 4))) {
 				testStatus = false;
 			}
-			else if ("TRUE".equals(r[i].substring(0, 4))) {
+			else if ("PASS".equals(r[i].substring(0, 4))) {
 				testStatus = true;
 			}
 			testCase.addTestResult(testStatus, r[i].substring(6).trim().replaceAll("[\\t\\n\\r]", " "));
