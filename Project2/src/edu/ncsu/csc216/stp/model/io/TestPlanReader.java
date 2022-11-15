@@ -47,7 +47,7 @@ public class TestPlanReader {
 		fileReader.close();
 		
 		if (fileString.charAt(0) != '!') {
-			throw new IllegalArgumentException("Unable to load file");
+			throw new IllegalArgumentException("Unable to load file.");
 		}
 		
 		Scanner n = new Scanner(fileString);

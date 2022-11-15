@@ -62,8 +62,8 @@ class TestPlanManagerTest {
 		manager.addTestCase(t2);
 		manager.addTestPlan("TestPlan2");
 		
-		manager.saveTestPlans(new File("test-files/urmom.txt"));
-		checkFiles("test-files/expected_out.txt", "test-files/urmom.txt");
+		manager.saveTestPlans(new File("test-files/test_file.txt"));
+		checkFiles("test-files/expected_out.txt", "test-files/test_file.txt");
 		
 		assertThrows(IllegalArgumentException.class, () -> manager.saveTestPlans(new File("")));
 	}
