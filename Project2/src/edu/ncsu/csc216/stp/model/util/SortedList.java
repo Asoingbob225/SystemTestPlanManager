@@ -3,10 +3,11 @@
  */
 package edu.ncsu.csc216.stp.model.util;
 
-
 /**
- * This is the SortedList class. It implements the ISortedList<E> interface.
+ * This is the SortedList class. It implements the ISortedList interface.
  * This is a list that can take any list of elements and sorts them.
+ * 
+ * @param <E> the object's generic type
  * 
  * @author stbeuav
  *
@@ -40,9 +41,9 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 		if (element == null) {
 			throw new NullPointerException();
 		}
-		
+
 		ListNode temp = front;
-		//duplicates check using compareTo
+		// duplicates check using compareTo
 		if (size() != 0) {
 			for (int i = 0; i < size(); i++) {
 				if (element.compareTo(temp.data) == 0) {
@@ -51,12 +52,11 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 				temp = temp.next;
 			}
 		}
-		
-		//adding to an empty list or front of the list
+
+		// adding to an empty list or front of the list
 		if (front == null || front.data.compareTo(element) > 0) {
 			front = new ListNode(element, front);
-		}
-		else {
+		} else {
 			temp = front;
 			while (temp.next != null && temp.next.data.compareTo(element) < 0) {
 				temp = temp.next;
@@ -70,7 +70,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * Returns the element from the given index. The element is removed from the
 	 * list.
 	 * 
-	 * @param idx index to remove element from
+	 * @param index index to remove element from
 	 * @return element at given index
 	 * @throws IndexOutOfBoundsException if the index is out of bounds for the list
 	 */
@@ -116,7 +116,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	/**
 	 * Returns the element at the given index.
 	 * 
-	 * @param idx index of the element to retrieve
+	 * @param index index of the element to retrieve
 	 * @return element at the given index
 	 * @throws IndexOutOfBoundsException if the index is out of bounds for the list
 	 */
@@ -180,33 +180,13 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 
 	/**
 	 * This compares the sorted list to another sorted list
+	 * 
 	 * @param o the other sorted list
 	 */
 	@Override
 	public int compareTo(E o) {
-//		if (this == o)
-//			return 1;
-//		if (o == null)
-//			return 0;
-//		if (getClass() != o.getClass())
-//			return 0;
-//		for (int i = 0; i < size(); i++) {
-//			if (get(i) == o) {
-//				return 0;
-//			}
-//			if (get(i).toString().charAt(i) > o.toString().charAt(i)) {
-//				return 1;
-//			}
-//			if (get(i).toString().charAt(i) < o.toString().charAt(i)) {
-//				return -1;
-//			}
-//			
-//		}
-//		return 0;
 		return this.compareTo(o);
-		
+
 	}
-
-
 
 }

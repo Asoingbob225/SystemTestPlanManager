@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import edu.ncsu.csc216.stp.model.tests.TestCase;
 
 /**
+ * Unit Tests for the TestPlan class
  * @author levic
  *
  */

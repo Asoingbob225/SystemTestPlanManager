@@ -6,7 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.stp.model.test_plans.TestPlan;
 
-
+/**
+ * Unit tests for TestCase class
+ * @author yujim
+ *
+ */
 class TestCaseTest {
 	
 	/** String representing test case name for testing **/
@@ -29,7 +33,7 @@ class TestCaseTest {
 	@Test
 	void testTestCase() {
 		TestCase t = new TestCase(ID, TYPE, DESCRIPTION, EXPECTED);
-		assertEquals("test1" , t.getTestCaseId());
+		assertEquals("test1", t.getTestCaseId());
 		assertEquals("type", t.getTestType());
 		assertEquals("description", t.getTestDescription());
 		assertEquals("expected results", t.getExpectedResults());

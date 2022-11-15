@@ -5,9 +5,11 @@ package edu.ncsu.csc216.stp.model.util;
 
 /**
  * 
- * This is the SwapList class. It implements the ISwapList<E> interface. This
+ * This is the SwapList class. It implements the ISwapList interface. This
  * allows elements inside of the list to be moved to the front or to the back.
  * It can also move the element up or down in the list.
+ * 
+ * @param <E> the object's generic type
  * 
  * @author yujim
  *
@@ -44,11 +46,9 @@ public class SwapList<E> implements ISwapList<E> {
 
 		try {
 			list[size++] = element;
-		} 
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw new IllegalArgumentException("Cannot add element.");
 		}
-
 
 	}
 
@@ -77,7 +77,7 @@ public class SwapList<E> implements ISwapList<E> {
 	 * Returns the element from the given index. The element is removed from the
 	 * list.
 	 * 
-	 * @param idx index to remove element from
+	 * @param index index to remove element from
 	 * @return element at given index
 	 * @throws IndexOutOfBoundsException if the idx is out of bounds for the list
 	 */
@@ -110,7 +110,7 @@ public class SwapList<E> implements ISwapList<E> {
 	 * Moves the element at the given index to index-1. If the element is already at
 	 * the front of the list, the list is not changed.
 	 * 
-	 * @param idx index of element to move up
+	 * @param index index of element to move up
 	 * @throws IndexOutOfBoundsException if the idx is out of bounds for the list
 	 */
 	public void moveUp(int index) {
@@ -133,7 +133,7 @@ public class SwapList<E> implements ISwapList<E> {
 	 * Moves the element at the given index to index+1. If the element is already at
 	 * the end of the list, the list is not changed.
 	 * 
-	 * @param idx index of element to move down
+	 * @param index index of element to move down
 	 * @throws IndexOutOfBoundsException if the idx is out of bounds for the list
 	 */
 	public void moveDown(int index) {
@@ -157,7 +157,7 @@ public class SwapList<E> implements ISwapList<E> {
 	 * Moves the element at the given index to index 0. If the element is already at
 	 * the front of the list, the list is not changed.
 	 * 
-	 * @param idx index of element to move to the front
+	 * @param index index of element to move to the front
 	 * @throws IndexOutOfBoundsException if the idx is out of bounds for the list
 	 */
 	public void moveToFront(int index) {
@@ -173,8 +173,7 @@ public class SwapList<E> implements ISwapList<E> {
 				list[i + 1] = list[i];
 			}
 			list[0] = element;
-		}
-		else {
+		} else {
 			list[index] = list[index];
 		}
 	}
@@ -183,7 +182,7 @@ public class SwapList<E> implements ISwapList<E> {
 	 * Moves the element at the given index to size-1. If the element is already at
 	 * the end of the list, the list is not changed.
 	 * 
-	 * @param idx index of element to move to the back
+	 * @param index index of element to move to the back
 	 * @throws IndexOutOfBoundsException if the idx is out of bounds for the list
 	 */
 	public void moveToBack(int index) {
@@ -191,7 +190,7 @@ public class SwapList<E> implements ISwapList<E> {
 		if (index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException();
 		}
-		
+
 		if (index != size() - 1) {
 			E element = list[index];
 			list[index] = null;
@@ -199,17 +198,16 @@ public class SwapList<E> implements ISwapList<E> {
 				list[i - 1] = list[i];
 			}
 			list[size() - 1] = element;
-		}
-		else {
+		} else {
 			list[size() - 1] = list[size() - 1];
 		}
-		
+
 	}
 
 	/**
 	 * Returns the element at the given index.
 	 * 
-	 * @param idx index of the element to retrieve
+	 * @param index index of the element to retrieve
 	 * @return element at the given index
 	 * @throws IndexOutOfBoundsException if the idx is out of bounds for the list
 	 */

@@ -18,7 +18,7 @@ public class TestPlan extends AbstractTestPlan implements Comparable<TestPlan> {
 	/**
 	 * This is the TestPlan constructor. It makes a test plan with the given name
 	 * 
-	 * @param testPlanName
+	 * @param testPlanName name of the test plan being constructed
 	 * @throws IllegalArgumentException if testPlanName is the same as
 	 *                                  FailingListTest.FAILING_TEST_LIST_NAME
 	 */

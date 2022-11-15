@@ -191,8 +191,8 @@ public class TestCase {
 	 *         otherwise.
 	 */
 	public boolean isTestCasePassing() {
-		if (testResults.size() != 0 && testResults.get(testResults.size() - 1).isPassing()) {
-			return true;
+		if (testResults.size() != 0) {
+			return testResults.get(testResults.size() - 1).isPassing();
 		}
 		return false;
 	}

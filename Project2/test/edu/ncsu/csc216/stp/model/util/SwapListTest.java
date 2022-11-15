@@ -7,8 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-
 /**
+ * Unit tests for SwapList custom list
+ * 
  * @author yujim
  *
  */
@@ -21,7 +22,7 @@ class SwapListTest {
 	void testSwapList() {
 		SwapList<Integer> a = new SwapList<Integer>();
 		assertEquals(0, a.size());
-		
+
 	}
 
 	/**
@@ -121,6 +122,5 @@ class SwapListTest {
 		assertThrows(IndexOutOfBoundsException.class, () -> a.moveToBack(-1));
 
 	}
-
 
 }
