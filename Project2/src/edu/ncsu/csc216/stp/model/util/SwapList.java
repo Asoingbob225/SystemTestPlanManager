@@ -38,46 +38,25 @@ public class SwapList<E> implements ISwapList<E> {
 	 * @throws NullPointerException     if element is null
 	 * @throws IllegalArgumentException if element cannot be added
 	 */
-	//@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	public void add(E element) {
 
 		if (element == null) {
 			throw new NullPointerException();
 		}
 
-//		try {
-//			
-//			int capacity = INIT_SIZE;
-//			
-//			if (size == capacity) {
-//				capacity *= 2;
-//				
-//				E[] oldlist = list;
-//				list = (E[]) new Object[capacity];
-//				for (int i = 0; i < oldlist.length; i++) {
-//					list[i] = oldlist[i];
-//				}
-//				
-//			}
-//			
-//			list[size++] = element;
-//			
-//		} catch (Exception e) {
-//			throw new IllegalArgumentException("Cannot add element.");
-//		}
-
-//		int capacity = INIT_SIZE;
-//		
-//		if (size == capacity) {
-//			capacity *= 2;
-//			
-//			E[] oldlist = list;
-//			list = (E[]) new Object[capacity];
-//			for (int i = 0; i < oldlist.length; i++) {
-//				list[i] = oldlist[i];
-//			}
-//			
-//		}
+		int capacity = INIT_SIZE;
+		
+		if (size == capacity) {
+			capacity *= 2;
+			
+			E[] oldlist = list;
+			list = (E[]) new Object[capacity];
+			for (int i = 0; i < oldlist.length; i++) {
+				list[i] = oldlist[i];
+			}
+			
+		}
 		
 		list[size] = element;
 		size++;

@@ -37,12 +37,28 @@ public class Log<E> implements ILog<E> {
 	 * @param element element to add
 	 * @throws NullPointerException if element is null
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void add(E element) {
 		if (element == null) {
 			throw new NullPointerException("Cannot add null element.");
 		}
-		log[size++] = element;
+		
+		int capacity = INIT_SIZE;
+		
+		if (size == capacity) {
+			capacity *= 2;
+			
+			E[] oldlist = log;
+			log = (E[]) new Object[capacity];
+			for (int i = 0; i < oldlist.length; i++) {
+				log[i] = oldlist[i];
+			}
+			
+		}
+		
+		log[size] = element;
+		size++;
 	}
 
 	/**

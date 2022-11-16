@@ -43,17 +43,15 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 		}
 
 		ListNode temp = front;
-		// duplicates check using compareTo
 		if (size() != 0) {
 			for (int i = 0; i < size(); i++) {
 				if (element.compareTo(temp.data) == 0) {
-					throw new IllegalArgumentException();
+					throw new IllegalArgumentException("Cannot add duplicate element.");
 				}
 				temp = temp.next;
 			}
 		}
 
-		// adding to an empty list or front of the list
 		if (front == null || front.data.compareTo(element) > 0) {
 			front = new ListNode(element, front);
 		} else {
