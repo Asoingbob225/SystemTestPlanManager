@@ -178,7 +178,7 @@ public class TestCase {
 			TestResult result = new TestResult(passing, actualResults);
 			testResults.add(result);
 		} catch (Exception e) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid test results.");
 		}
 
 	}
