@@ -44,26 +44,26 @@ public class SwapList<E> implements ISwapList<E> {
 			throw new NullPointerException("Cannot add null element.");
 		}
 
-		//int capacity = INIT_SIZE;
+		try {
+			
+			if (size == list.length) {
 
-		if (size == list.length - 1) {
-//			capacity *= 2;
-
-			E[] tempList = (E[]) new Object[list.length * 2];
-//			list = (E[]) new Object[list.length * 2];
-			for (int i = 0; i < list.length; i++) {
-				tempList[i] = list[i];
+				E[] tempList = (E[]) new Object[list.length * 2];
+				for (int i = 0; i < list.length; i++) {
+					tempList[i] = list[i];
+				}
+				list = tempList;
 			}
-			list = tempList;
 
+			list[size] = element;
+			size++;
 		}
+		catch (IllegalArgumentException e) {
+			throw new IllegalArgumentException("Cannot add element");
+		}
+		
 
-		list[size] = element;
-		size++;
-		
-		
-		
-		// I took out IllegalArgumentException catcher to see what the actual error is on jenkins
+
 	}
 
 	/**

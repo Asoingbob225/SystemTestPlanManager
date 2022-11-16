@@ -44,17 +44,14 @@ public class Log<E> implements ILog<E> {
 			throw new NullPointerException("Cannot add null element.");
 		}
 		
-		int capacity = INIT_SIZE;
-		
-		if (size == capacity) {
-			capacity *= 2;
-			
-			E[] oldlist = log;
-			log = (E[]) new Object[capacity];
-			for (int i = 0; i < oldlist.length; i++) {
-				log[i] = oldlist[i];
+		if (size == log.length) {
+
+			E[] tempList = (E[]) new Object[log.length * 2];
+			for (int i = 0; i < log.length; i++) {
+				tempList[i] = log[i];
 			}
-			
+			log = tempList;
+
 		}
 		
 		log[size] = element;
