@@ -42,6 +42,10 @@ class TestPlanReaderTest {
 		assertEquals(3, testPlans.get(1).getTestCases().size());
 
 		assertThrows(IllegalArgumentException.class, () -> TestPlanReader.readTestPlansFile(new File(invalidTestFile)));
+		
+		ISortedList<TestPlan> t = TestPlanReader.readTestPlansFile(new File("test-files/test-plans8.txt"));
+		assertEquals(1, t.size());
+		assertEquals(0, t.get(0).getTestCases().size());
 
 	}
 

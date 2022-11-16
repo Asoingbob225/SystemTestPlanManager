@@ -139,7 +139,7 @@ public class TestPlanManager {
 		testNames[0] = failingTests.getTestPlanName();
 		for (int i = 0; i < testPlans.size(); i++) {
 			testNames[i + 1] = testPlans.get(i).getTestPlanName();
-		}
+		}		
 		return testNames;
 	}
 

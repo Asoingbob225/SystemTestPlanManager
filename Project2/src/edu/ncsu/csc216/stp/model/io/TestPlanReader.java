@@ -32,40 +32,40 @@ public class TestPlanReader {
 		Scanner fileReader;
 		try {
 			fileReader = new Scanner(new FileInputStream(filename)); // Create a file scanner to read the file
+			
+			
+			String fileString = "";
+
+			while (fileReader.hasNextLine()) {
+				fileString += fileReader.nextLine() + "\n";
+
+			}
+			fileReader.close();
+			
+			if (fileString.charAt(0) != '!') {
+				throw new IllegalArgumentException("Unable to load file.");
+			}
+			
+			Scanner n = new Scanner(fileString);
+			n.useDelimiter("\\r?\\n?[!]");
+			
+			while (n.hasNext()) {
+				try {
+					testPlans.add(processTestPlan(n.next()));
+				} catch (Exception e) {
+					n.close();
+					return testPlans;
+				}
+			}
+
+			n.close();
 
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException("Unable to load file.");
 
 		}
-
-		String fileString = "";
-
-		while (fileReader.hasNextLine()) {
-			fileString += fileReader.nextLine() + "\n";
-
-		}
-		fileReader.close();
 		
-		if (fileString.charAt(0) != '!') {
-			throw new IllegalArgumentException("Unable to load file.");
-		}
-		
-		Scanner n = new Scanner(fileString);
-		n.useDelimiter("\\r?\\n?[!]");
-		
-		while (n.hasNext()) {
-			try {
-				testPlans.add(processTestPlan(n.next()));
-			} catch (Exception e) {
-				n.close();
-				return testPlans;
-			}
-		}
 
-		n.close();
-		
-//		System.out.println(testPlans.get(0).getTestPlanName());
-//		System.out.println(testPlans.get(1).getTestPlanName());
 
 		
 		return testPlans;
@@ -77,22 +77,32 @@ public class TestPlanReader {
 	 * @return testPlan the test plan
 	 */
 	private static TestPlan processTestPlan(String line) {
-		Scanner n = new Scanner(line);
-		String testPlanName = n.nextLine().trim();
-		//System.out.println(testPlanName);
-		TestPlan testPlan = new TestPlan(testPlanName);
-		n.useDelimiter("\\r?\\n?[#]");
-		
-		while(n.hasNext()) {
-			try {
-				testPlan.addTestCase(processTest(testPlan, n.next()));
-			} catch (Exception e) {
-				n.close();
+			Scanner n = new Scanner(line);
+			String testPlanName = n.nextLine().trim();
+			//System.out.println(testPlanName);
+			TestPlan testPlan = new TestPlan(testPlanName);
+			n.useDelimiter("\\r?\\n?[#]");
+			
+			while(n.hasNext()) {
+				try {
+					if (processTest(testPlan, n.next()) == null) {
+						break;
+					}
+					else {
+						testPlan.addTestCase(processTest(testPlan, n.next()));
+
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					n.close();
+				}
 			}
-		}
-		n.close();
+			n.close();
+			
+			return testPlan;
 		
-		return testPlan;
+
+
 	}
 	
 	/**
@@ -125,6 +135,7 @@ public class TestPlanReader {
 		
 		n.useDelimiter("\\r?\\n?[*]");
 		
+		
 		description = n.next().trim().replaceAll("[\\t\\n\\r]", " ");
 		
 		results = n.next().trim();
@@ -139,18 +150,24 @@ public class TestPlanReader {
 
 		for (int i = 1; i < r.length; i++) {
 			boolean testStatus = false;
-			if ("FAIL".equals(r[i].substring(0, 4))) {
+			//System.out.println(r[i]);
+			if ("FAIL".equals(r[i].trim().substring(0, 4))) {
 				testStatus = false;
 			}
-			else if ("PASS".equals(r[i].substring(0, 4))) {
+			else if ("PASS".equals(r[i].trim().substring(0, 4))) {
 				testStatus = true;
 			}
+			else {
+				return null;
+			}
+			
 			testCase.addTestResult(testStatus, r[i].substring(6).trim().replaceAll("[\\t\\n\\r]", " "));
 		}
 		
 		
 		return testCase;
-		
+
 	}
+		
 
 }
