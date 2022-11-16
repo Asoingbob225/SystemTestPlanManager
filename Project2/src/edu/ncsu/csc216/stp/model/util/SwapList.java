@@ -79,7 +79,8 @@ public class SwapList<E> implements ISwapList<E> {
 			
 		}
 		
-		list[size++] = element;
+		list[size] = element;
+		size++;
 	}
 
 //	/**
