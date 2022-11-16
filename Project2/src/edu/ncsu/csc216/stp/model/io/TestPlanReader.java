@@ -86,6 +86,7 @@ public class TestPlanReader {
 			
 			while(n.hasNext()) {
 				try {
+					System.out.println(n.next());
 					if (processTest(testPlan, n.next()) == null) {
 						break;
 					}
