@@ -77,6 +77,7 @@ public class TestPlanReader {
 	 * @return testPlan the test plan
 	 */
 	private static TestPlan processTestPlan(String line) {
+		try {
 			Scanner n = new Scanner(line);
 			String testPlanName = n.nextLine().trim();
 			//System.out.println(testPlanName);
@@ -94,12 +95,17 @@ public class TestPlanReader {
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
-					n.close();
+					//n.close();
 				}
 			}
 			n.close();
 			
 			return testPlan;
+		}
+		catch (Exception e) {
+			return null;
+		}
+
 		
 
 
