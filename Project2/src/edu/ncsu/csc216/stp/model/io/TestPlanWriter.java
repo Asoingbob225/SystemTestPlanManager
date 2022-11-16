@@ -38,7 +38,7 @@ public class TestPlanWriter {
 			if (testPlans.get(i).getTestCases().size() > 0) {
 				fileWriter.println();
 				for (int j = 0; j < testPlans.get(i).getTestCases().size(); j++){
-					fileWriter.println(testPlans.get(i).getTestCases().get(j).toString());
+					fileWriter.print(testPlans.get(i).getTestCases().get(j).toString());
 				}
 			}
 
