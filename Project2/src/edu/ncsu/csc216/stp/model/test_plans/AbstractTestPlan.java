@@ -131,7 +131,8 @@ public abstract class AbstractTestPlan {
 	
 	
 	/**
-	 * This is the hashcode for the AbstractTestPlan
+	 * Retrieves an object's hash code.
+	 * @return integer representing the object's hash code.  
 	 */
 	@Override
 	public int hashCode() {
@@ -139,7 +140,9 @@ public abstract class AbstractTestPlan {
 	}
 
 	/**
-	 * This is the equals method for equals in the AbstractTestPlan
+	 * Compares two courses to determine if they are equivalent. 
+	 * @param obj object which is being compared to the course.
+	 * @return boolean declaring whether or not two objects are equal based on credits, instructor ID, section, and name.   
 	 */
 	@Override
 	public boolean equals(Object obj) {

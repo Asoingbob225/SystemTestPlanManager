@@ -68,6 +68,7 @@ public class TestPlanManager {
 		for (int i = 0; i < potentialTestPlans.size(); i++) {
 			testPlans.add(potentialTestPlans.get(i));
 		}
+		getFailingTests();
 		currentTestPlan = failingTests;
 		isChanged = true;
 

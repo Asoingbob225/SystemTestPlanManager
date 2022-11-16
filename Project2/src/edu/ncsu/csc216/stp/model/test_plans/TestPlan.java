@@ -106,4 +106,31 @@ public class TestPlan extends AbstractTestPlan implements Comparable<TestPlan> {
 
 	}
 
+	/**
+	 * Retrieves an object's hash code.
+	 * @return integer representing the object's hash code.  
+	 */
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	/**
+	 * Compares two courses to determine if they are equivalent. 
+	 * @param obj object which is being compared to the course.
+	 * @return boolean declaring whether or not two objects are equal based on credits, instructor ID, section, and name.   
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return true;
+	}
+	
+	
+
 }
