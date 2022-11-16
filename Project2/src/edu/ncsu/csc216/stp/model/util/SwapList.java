@@ -40,47 +40,30 @@ public class SwapList<E> implements ISwapList<E> {
 	 */
 	@SuppressWarnings("unchecked")
 	public void add(E element) {
-
 		if (element == null) {
-			throw new NullPointerException();
+			throw new NullPointerException("Cannot add null element.");
 		}
 
 		int capacity = INIT_SIZE;
-		
+
 		if (size == capacity) {
 			capacity *= 2;
-			
+
 			E[] oldlist = list;
 			list = (E[]) new Object[capacity];
 			for (int i = 0; i < oldlist.length; i++) {
 				list[i] = oldlist[i];
 			}
-			
+
 		}
-		
+
 		list[size] = element;
 		size++;
+		
+		
+		
+		// I took out IllegalArgumentException catcher to see what the actual error is on jenkins
 	}
-
-//	/**
-//	 * This checks the capacity of the list at a certain size
-//	 * 
-//	 * @param size the size to check at
-//	 */
-//	@SuppressWarnings("unchecked")
-//	private void checkCapacity(int size) {
-//		int capacity = INIT_SIZE;
-//
-//		if (size == capacity) {
-//			capacity *= 2;
-//
-//			E[] oldlist = list;
-//			list = (E[]) new Object[capacity];
-//			for (int i = 0; i < oldlist.length; i++) {
-//				list[i] = oldlist[i];
-//			}
-//		}
-//	}
 
 	/**
 	 * Returns the element from the given index. The element is removed from the
@@ -105,16 +88,6 @@ public class SwapList<E> implements ISwapList<E> {
 		return element;
 	}
 
-//	/**
-//	 * Checks what is at the given index
-//	 * @param index the index to check
-//	 * @throws IndexOutOfBoundsException if the idx is out of bounds
-//	 * 		for the list
-//	 */
-//	private void checkIndex(int index) {
-//		//add code
-//	}
-
 	/**
 	 * Moves the element at the given index to index-1. If the element is already at
 	 * the front of the list, the list is not changed.
@@ -123,7 +96,6 @@ public class SwapList<E> implements ISwapList<E> {
 	 * @throws IndexOutOfBoundsException if the idx is out of bounds for the list
 	 */
 	public void moveUp(int index) {
-		// add code
 		if (index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException("Invalid index.");
 		}
@@ -170,7 +142,6 @@ public class SwapList<E> implements ISwapList<E> {
 	 * @throws IndexOutOfBoundsException if the idx is out of bounds for the list
 	 */
 	public void moveToFront(int index) {
-		// add code
 		if (index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException("Invalid index.");
 		}
@@ -195,7 +166,6 @@ public class SwapList<E> implements ISwapList<E> {
 	 * @throws IndexOutOfBoundsException if the idx is out of bounds for the list
 	 */
 	public void moveToBack(int index) {
-		// add code
 		if (index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException("Invalid index.");
 		}
