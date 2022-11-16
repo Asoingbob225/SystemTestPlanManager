@@ -24,7 +24,7 @@ public class TestPlan extends AbstractTestPlan implements Comparable<TestPlan> {
 	 */
 	public TestPlan(String testPlanName) {
 		super(testPlanName);
-		if (testPlanName.equals(FailingTestList.FAILING_TEST_LIST_NAME)) {
+		if (testPlanName.toLowerCase().equals(FailingTestList.FAILING_TEST_LIST_NAME.toLowerCase())) {
 			throw new IllegalArgumentException("Invalid name.");
 		}
 	}
