@@ -228,7 +228,7 @@ public class TestPlanManager {
 	 */
 	public void removeTestPlan() {
 		if (currentTestPlan == failingTests) {
-			throw new IllegalArgumentException("The Failing Tests list may not be edited.");
+			throw new IllegalArgumentException("The Failing Tests list may not be deleted.");
 		}
 
 		int index = 0;

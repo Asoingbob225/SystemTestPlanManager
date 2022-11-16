@@ -33,10 +33,13 @@ public class FailingTestList extends AbstractTestPlan {
 	 */
 	@Override
 	public void addTestCase(TestCase testCase) {
-		if (!testCase.getStatus().equals("FAIL")) {
-			throw new IllegalArgumentException("Cannot add passing test case.");
+		if (this.getTestPlanName() != null) {
+			if (!testCase.getStatus().equals("FAIL")) {
+				throw new IllegalArgumentException("Cannot add passing test case.");
+			}
+			super.addTestCase(testCase);
 		}
-		super.addTestCase(testCase);
+
 	}
 
 	/**
