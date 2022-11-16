@@ -44,16 +44,17 @@ public class SwapList<E> implements ISwapList<E> {
 			throw new NullPointerException("Cannot add null element.");
 		}
 
-		int capacity = INIT_SIZE;
+		//int capacity = INIT_SIZE;
 
-		if (size == capacity) {
-			capacity *= 2;
+		if (size == list.length - 1) {
+//			capacity *= 2;
 
-			E[] oldlist = list;
-			list = (E[]) new Object[capacity];
-			for (int i = 0; i < oldlist.length; i++) {
-				list[i] = oldlist[i];
+			E[] tempList = (E[]) new Object[list.length * 2];
+//			list = (E[]) new Object[list.length * 2];
+			for (int i = 0; i < list.length; i++) {
+				tempList[i] = list[i];
 			}
+			list = tempList;
 
 		}
 
