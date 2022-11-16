@@ -38,6 +38,7 @@ public class SwapList<E> implements ISwapList<E> {
 	 * @throws NullPointerException     if element is null
 	 * @throws IllegalArgumentException if element cannot be added
 	 */
+	@SuppressWarnings("unchecked")
 	public void add(E element) {
 
 		if (element == null) {
@@ -45,33 +46,48 @@ public class SwapList<E> implements ISwapList<E> {
 		}
 
 		try {
-			checkCapacity(size);
+//			checkCapacity(size);
+			
+			int capacity = INIT_SIZE;
+			
+			if (size == capacity) {
+				capacity *= 2;
+				
+				E[] oldlist = list;
+				list = (E[]) new Object[capacity];
+				for (int i = 0; i < oldlist.length; i++) {
+					list[i] = oldlist[i];
+				}
+				
+			}
+			
 			list[size++] = element;
+			
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Cannot add element.");
 		}
 
 	}
 
-	/**
-	 * This checks the capacity of the list at a certain size
-	 * 
-	 * @param size the size to check at
-	 */
-	@SuppressWarnings("unchecked")
-	private void checkCapacity(int size) {
-		int capacity = INIT_SIZE;
-
-		if (size == capacity) {
-			capacity *= 2;
-
-			E[] oldlist = list;
-			list = (E[]) new Object[capacity];
-			for (int i = 0; i < oldlist.length; i++) {
-				list[i] = oldlist[i];
-			}
-		}
-	}
+//	/**
+//	 * This checks the capacity of the list at a certain size
+//	 * 
+//	 * @param size the size to check at
+//	 */
+//	@SuppressWarnings("unchecked")
+//	private void checkCapacity(int size) {
+//		int capacity = INIT_SIZE;
+//
+//		if (size == capacity) {
+//			capacity *= 2;
+//
+//			E[] oldlist = list;
+//			list = (E[]) new Object[capacity];
+//			for (int i = 0; i < oldlist.length; i++) {
+//				list[i] = oldlist[i];
+//			}
+//		}
+//	}
 
 	/**
 	 * Returns the element from the given index. The element is removed from the
