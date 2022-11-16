@@ -45,28 +45,41 @@ public class SwapList<E> implements ISwapList<E> {
 			throw new NullPointerException();
 		}
 
-		try {
-//			checkCapacity(size);
+//		try {
+//			
+//			int capacity = INIT_SIZE;
+//			
+//			if (size == capacity) {
+//				capacity *= 2;
+//				
+//				E[] oldlist = list;
+//				list = (E[]) new Object[capacity];
+//				for (int i = 0; i < oldlist.length; i++) {
+//					list[i] = oldlist[i];
+//				}
+//				
+//			}
+//			
+//			list[size++] = element;
+//			
+//		} catch (Exception e) {
+//			throw new IllegalArgumentException("Cannot add element.");
+//		}
+
+		int capacity = INIT_SIZE;
+		
+		if (size == capacity) {
+			capacity *= 2;
 			
-			int capacity = INIT_SIZE;
-			
-			if (size == capacity) {
-				capacity *= 2;
-				
-				E[] oldlist = list;
-				list = (E[]) new Object[capacity];
-				for (int i = 0; i < oldlist.length; i++) {
-					list[i] = oldlist[i];
-				}
-				
+			E[] oldlist = list;
+			list = (E[]) new Object[capacity];
+			for (int i = 0; i < oldlist.length; i++) {
+				list[i] = oldlist[i];
 			}
 			
-			list[size++] = element;
-			
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Cannot add element.");
 		}
-
+		
+		list[size++] = element;
 	}
 
 //	/**
