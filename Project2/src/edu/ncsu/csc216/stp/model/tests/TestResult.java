@@ -94,6 +94,6 @@ public class TestResult {
 		} else {
 			result = FAIL;
 		}
-		return result.toUpperCase() + ": " + actualResults;
+		return result.toUpperCase() + ": " + actualResults + "\n";
 	}
 }
