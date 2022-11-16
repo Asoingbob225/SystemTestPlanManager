@@ -219,7 +219,7 @@ public class TestCase {
 
 		for (int i = 0; i < testResults.size(); i++) {
 			if (i == testResults.size() - 1) {
-				log += "- " + testResults.get(i).toString();
+				log += "- " + testResults.get(i).toString() + "\n";
 			} else {
 				log += "- " + testResults.get(i).toString() + "\n";
 			}
