@@ -23,7 +23,7 @@ public class FailingTestList extends AbstractTestPlan {
 	 */
 	public FailingTestList() {
 		super(FAILING_TEST_LIST_NAME);
-		super.setTestPlanName(FAILING_TEST_LIST_NAME);
+		setTestPlanName(FAILING_TEST_LIST_NAME);
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class FailingTestList extends AbstractTestPlan {
 		if (!testPlanName.toUpperCase().equals(FAILING_TEST_LIST_NAME.toUpperCase())) {
 			throw new IllegalArgumentException("The Failing Tests list cannot be edited.");
 		}
-
+		super.setTestPlanName(FAILING_TEST_LIST_NAME);
 	}
 
 	/**
