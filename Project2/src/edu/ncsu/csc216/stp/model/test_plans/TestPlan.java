@@ -105,7 +105,5 @@ public class TestPlan extends AbstractTestPlan implements Comparable<TestPlan> {
 		return -1;
 
 	}
-	
-	
 
 }
