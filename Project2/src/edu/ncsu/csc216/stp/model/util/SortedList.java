@@ -18,7 +18,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	private int size;
 
 	/** The front of the sorted list */
-	private ListNode front;
+	private ListNode front = new ListNode(null);
 
 	/**
 	 * This is the constructor for the SortedList. It initializes the size at 0 and

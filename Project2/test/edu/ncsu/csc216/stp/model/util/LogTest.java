@@ -24,7 +24,15 @@ class LogTest {
 		a.add(10);
 		a.add(20);
 		a.add(30);
-		assertEquals(3, a.size());
+		a.add(40);
+		a.add(50);
+		a.add(60);
+		a.add(70);
+		a.add(80);
+		a.add(90);
+		a.add(100);
+		a.add(110);
+		assertEquals(11, a.size());
 		assertEquals(10, a.get(0));
 		assertEquals(20, a.get(1));
 		assertEquals(30, a.get(2));
