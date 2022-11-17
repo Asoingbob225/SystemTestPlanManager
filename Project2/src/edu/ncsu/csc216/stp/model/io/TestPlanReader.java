@@ -67,7 +67,9 @@ public class TestPlanReader {
 		
 
 
-		
+		System.out.println(testPlans.get(0).getTestPlanName());
+		System.out.println(testPlans.get(1).getTestPlanName());
+
 		return testPlans;
 	}
 	
@@ -87,12 +89,11 @@ public class TestPlanReader {
 			while(n.hasNext()) {
 				try {
 					System.out.println(n.next());
-					if (processTest(testPlan, n.next()) == null) {
-						break;
+					if (processTest(testPlan, n.next()) != null) {
+						testPlan.addTestCase(processTest(testPlan, n.next()));
 					}
 					else {
-						testPlan.addTestCase(processTest(testPlan, n.next()));
-
+						break;
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -173,6 +174,7 @@ public class TestPlanReader {
 		
 		
 		return testCase;
+
 
 	}
 		
