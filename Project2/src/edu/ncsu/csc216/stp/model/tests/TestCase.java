@@ -50,7 +50,7 @@ public class TestCase {
 		setTestType(testType);
 		setTestDescription(testDescription);
 		setExpectedResults(expectedResults);
-		this.testPlan = null;
+//		this.testPlan = null;
 		testResults = new Log<TestResult>();
 	}
 
