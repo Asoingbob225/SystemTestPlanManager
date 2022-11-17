@@ -53,7 +53,7 @@ public abstract class AbstractTestPlan {
 	
 	/**
 	 * Gets the name of the test plan
-	 * @return testPlanName the name of the test plann
+	 * @return testPlanName the name of the test plan
 	 */
 	public String getTestPlanName() {
 		return testPlanName; 

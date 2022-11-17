@@ -55,6 +55,7 @@ public class TestPlanReader {
 				} catch (Exception e) {
 //					n.close();
 //					throw new IllegalArgumentException();
+					break;
 				}
 			}
 
@@ -87,7 +88,7 @@ public class TestPlanReader {
 				try {
 					testPlan.addTestCase(processTest(testPlan, n.next()));
 				} catch (Exception e) {
-					
+					break;
 				}
 			}
 			n.close();
