@@ -130,7 +130,7 @@ public class TestPlanReader {
 		n.useDelimiter("\\r?\\n?[*]");
 		
 		
-		description = n.next().trim().replaceAll("[\\t\\n\\r]", " ");
+		description = n.next().trim().replaceAll("\\r\\n", "");
 		
 		results = n.next().trim();
 		
@@ -138,7 +138,7 @@ public class TestPlanReader {
 		
 		String [] r = results.split("\\r?\\n?[-]");
 		
-		expected = r[0].replaceAll("[\\t\\n\\r]", " ");
+		expected = r[0].replaceAll("\\r\\n", "");
 		
 		TestCase testCase = new TestCase(id, type, description, expected);
 
@@ -155,7 +155,7 @@ public class TestPlanReader {
 				return null;
 			}
 			
-			testCase.addTestResult(testStatus, r[i].substring(6).trim().replaceAll("[\\t\\n\\r]", " "));
+			testCase.addTestResult(testStatus, r[i].substring(6).trim().replaceAll("\\r\\n", ""));
 		}
 		
 		
