@@ -163,6 +163,9 @@ public class TestCase {
 	 * @return testPlan the test plan
 	 */
 	public TestPlan getTestPlan() {
+		if (testPlan != null) {
+			throw new NullPointerException("No Test Plan Set");
+		}
 		return testPlan;
 	}
 
