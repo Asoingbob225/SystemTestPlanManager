@@ -136,7 +136,7 @@ public abstract class AbstractTestPlan {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(testPlanName, testCases);
+		return Objects.hash(testPlanName);
 	}
 
 	/**
