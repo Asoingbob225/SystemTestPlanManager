@@ -80,8 +80,9 @@ public class FailingTestList extends AbstractTestPlan {
 	 * This clears the FailingTestList of all of the test cases
 	 */
 	public void clearTests() {
-		for (int i = 0; i < super.getTestCases().size(); i++) {
-			super.removeTestCase(i);
+		int listSize = super.getTestCases().size();
+		for (int i = 0; i < listSize; i++) {
+			super.removeTestCase(0);
 		}
 	}
 }

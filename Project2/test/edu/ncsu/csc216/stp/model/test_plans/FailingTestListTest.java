@@ -65,7 +65,13 @@ class FailingTestListTest {
 	void testClearTests() {
 		FailingTestList list = new FailingTestList();
 		TestCase testCase = new TestCase(ID, TYPE, DESCRIPTION, EXPECTED);
+		TestCase testCase2 = new TestCase("test2", TYPE, DESCRIPTION, EXPECTED);
+		TestCase testCase3 = new TestCase("test3", TYPE, DESCRIPTION, EXPECTED);
+		TestCase testCase4 = new TestCase("test4", TYPE, DESCRIPTION, EXPECTED);
 		list.addTestCase(testCase);
+		list.addTestCase(testCase2);
+		list.addTestCase(testCase3);
+		list.addTestCase(testCase4);
 		list.clearTests();
 		assertEquals(0, list.getTestCasesAsArray().length);
 	}
