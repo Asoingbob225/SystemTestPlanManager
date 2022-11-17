@@ -31,8 +31,7 @@ public class TestPlanReader {
 		ISortedList<TestPlan> testPlans = new SortedList<TestPlan>();
 		Scanner fileReader;
 		try {
-			fileReader = new Scanner(new FileInputStream(filename)); // Create a file scanner to read the file
-			
+			fileReader = new Scanner(new FileInputStream(filename)); 
 			
 			String fileString = "";
 
@@ -50,11 +49,12 @@ public class TestPlanReader {
 			n.useDelimiter("\\r?\\n?[!]");
 			
 			while (n.hasNext()) {
+				
 				try {
 					testPlans.add(processTestPlan(n.next()));
 				} catch (Exception e) {
-					n.close();
-					return testPlans;
+//					n.close();
+//					throw new IllegalArgumentException();
 				}
 			}
 
@@ -67,8 +67,6 @@ public class TestPlanReader {
 		
 
 
-		System.out.println(testPlans.get(0).getTestPlanName());
-		System.out.println(testPlans.get(1).getTestPlanName());
 
 		return testPlans;
 	}
@@ -82,22 +80,14 @@ public class TestPlanReader {
 		try {
 			Scanner n = new Scanner(line);
 			String testPlanName = n.nextLine().trim();
-			//System.out.println(testPlanName);
 			TestPlan testPlan = new TestPlan(testPlanName);
 			n.useDelimiter("\\r?\\n?[#]");
 			
 			while(n.hasNext()) {
 				try {
-					System.out.println(n.next());
-					if (processTest(testPlan, n.next()) != null) {
-						testPlan.addTestCase(processTest(testPlan, n.next()));
-					}
-					else {
-						break;
-					}
+					testPlan.addTestCase(processTest(testPlan, n.next()));
 				} catch (Exception e) {
-					e.printStackTrace();
-					//n.close();
+					
 				}
 			}
 			n.close();
@@ -107,10 +97,6 @@ public class TestPlanReader {
 		catch (Exception e) {
 			return null;
 		}
-
-		
-
-
 	}
 	
 	/**
