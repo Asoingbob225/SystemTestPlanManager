@@ -153,6 +153,11 @@ public abstract class AbstractTestPlan {
 		if (getClass() != obj.getClass())
 			return false;
 		AbstractTestPlan other = (AbstractTestPlan) obj;
-		return Objects.equals(testCases, other.testCases) && Objects.equals(testPlanName.toUpperCase(), other.testPlanName.toUpperCase());
+		for (int i = 0; i < testCases.size(); i++) {
+			if (testCases.get(i).equals(other.testCases.get(i))) {
+				return false;
+			}
+		}
+		return Objects.equals(testPlanName.toUpperCase(), other.testPlanName.toUpperCase());
 	}
 }

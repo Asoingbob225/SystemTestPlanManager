@@ -69,10 +69,10 @@ class TestPlanTest {
 		TestCase testCase1 = new TestCase(ID, TYPE, DESCRIPTION, EXPECTED);
 		testPlan1.addTestCase(testCase1);
 	
-		TestPlan testPlan2 = new TestPlan("Test2");
+		TestPlan testPlan2 = new TestPlan("Test1");
 		TestCase testCase2 = new TestCase(ID, TYPE, DESCRIPTION, EXPECTED);
 		testPlan2.addTestCase(testCase2);
-		assertFalse(testPlan1.equals(testPlan2));
+		assertTrue(testPlan1.equals(testPlan2));
 	}
 	
 	@Test
